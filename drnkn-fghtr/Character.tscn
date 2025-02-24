@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvi1mxvyt4e4f"]
+
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Crouch_Anim.res" id="1_ebt8o"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Crouch_Kick_Anim.res" id="2_13y1a"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Crouch_Punch_Anim.res" id="3_o6arm"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Goes_Crouch_Anim.res" id="4_2rbe6"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Goes_Idle_Anim.res" id="5_4sf10"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Idle_Anim.res" id="6_43eq6"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Jump_Anim.res" id="7_7kssg"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Kick_Anim.res" id="8_lm32k"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Punch_Anim.res" id="9_kjnso"]
+[ext_resource type="Animation" path="res://Assets/Ryu/Ryu_Shouryuken_Anim.res" id="10_h0dci"]
+
+[sub_resource type="Animation" id="Animation_vmjrf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(983, 0, 43, 109)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -109)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tndva"]
+_data = {
+"RESET": SubResource("Animation_vmjrf"),
+"Ryu_Crouch_Anim": ExtResource("1_ebt8o"),
+"Ryu_Crouch_Kick_Anim": ExtResource("2_13y1a"),
+"Ryu_Crouch_Punch_Anim": ExtResource("3_o6arm"),
+"Ryu_Goes_Crouch_Anim": ExtResource("4_2rbe6"),
+"Ryu_Goes_Idle_Anim": ExtResource("5_4sf10"),
+"Ryu_Idle_Anim": ExtResource("6_43eq6"),
+"Ryu_Jump_Anim": ExtResource("7_7kssg"),
+"Ryu_Kick_Anim": ExtResource("8_lm32k"),
+"Ryu_Punch_Anim": ExtResource("9_kjnso"),
+"Ryu_Shouryuken_Anim": ExtResource("10_h0dci")
+}
+
+[node name="Player" type="Node2D"]
+
+[node name="Graphics" type="Node2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+texture_filter = 1
+rotation = 0.0045045
+centered = false
+offset = Vector2(0, -109)
+region_enabled = true
+region_rect = Rect2(983, 0, 43, 109)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics"]
+libraries = {
+"": SubResource("AnimationLibrary_tndva")
+}
+autoplay = "Ryu_Idle_Anim"
+
+[node name="Input Handler" type="Node" parent="."]
