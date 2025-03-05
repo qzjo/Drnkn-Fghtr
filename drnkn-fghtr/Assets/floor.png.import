@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7n2lkvicp0xs"
-path="res://.godot/imported/EDIT_Ryu_Sprite_Sheet.png-1a415eddb30b69a0c81a200fd210f673.ctex"
+uid="uid://cplbbhs4fj1uc"
+path="res://.godot/imported/floor.png-1e503fdcbfc8415a976a6bbee47dc71e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EDIT_Ryu_Sprite_Sheet.png"
-dest_files=["res://.godot/imported/EDIT_Ryu_Sprite_Sheet.png-1a415eddb30b69a0c81a200fd210f673.ctex"]
+source_file="res://Assets/floor.png"
+dest_files=["res://.godot/imported/floor.png-1e503fdcbfc8415a976a6bbee47dc71e.ctex"]
 
 [params]
 

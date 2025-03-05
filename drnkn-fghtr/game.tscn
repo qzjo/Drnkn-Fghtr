@@ -1,29 +1,97 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=10 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
+[ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
+[ext_resource type="Shader" path="res://perspective.gdshader" id="1_ha0kb"]
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
+texture = ExtResource("1_bh7tu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_s846x"]
+sources/0 = SubResource("TileSetAtlasSource_k1ct2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rt8s0"]
+shader = ExtResource("1_ha0kb")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvkul"]
+size = Vector2(1193.5, 443)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqk3"]
-size = Vector2(64.3333, 67.2)
+size = Vector2(26.1666, 596)
 
 [node name="Game" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="TileMapLayer" type="TileMapLayer" parent="Floor"]
+top_level = true
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(715, 917)
+rotation = 3.14159
+tile_map_data = PackedByteArray("AADl/xAAAAAAAAAAAADm/xAAAAAAAAAAAADn/xAAAAAAAAAAAADo/xAAAAAAAAAAAADp/xAAAAAAAAAAAADq/xAAAAAAAAAAAADr/xAAAAAAAAAAAADs/xAAAAAAAAAAAADt/xAAAAAAAAAAAADu/xAAAAAAAAAAAADv/xAAAAAAAAAAAADw/xAAAAAAAAAAAADx/xAAAAAAAAAAAADy/xAAAAAAAAAAAADz/xAAAAAAAAAAAAD0/xAAAAAAAAAAAAD1/xAAAAAAAAAAAAD2/xAAAAAAAAAAAAD3/xAAAAAAAAAAAAD4/xAAAAAAAAAAAAD5/xAAAAAAAAAAAAD6/xAAAAAAAAAAAAD7/xAAAAAAAAAAAAD8/xAAAAAAAAAAAAD9/xAAAAAAAAAAAAD+/xAAAAAAAAAAAAD//xAAAAAAAAAAAAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAAAAAADABAAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAAGABAAAAAAAAAAAAAHABAAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAYABAAAAAAAAAAAAAZABAAAAAAAAAAAAAaABAAAAAAAAAAAAAbABAAAAAAAAAAAAAcABAAAAAAAAAAAAAdABAAAAAAAAAAAAAeABAAAAAAAAAAAAAfABAAAAAAAAAAAAAgABAAAAAAAAAAAAAhABAAAAAAAAAAAAAiABAAAAAAAAAAAAAjABAAAAAAAAAAAAAkABAAAAAAAAAAAAAlABAAAAAAAAAAAAAmABAAAAAAAAAAAAAnABAAAAAAAAAAAAAoABAAAAAAAAAAAAApABAAAAAAAAAAAAAqABAAAAAAAAAAAAArABAAAAAAAAAAAAAsABAAAAAAAAAAAAAtABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_s846x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+visible = false
+self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
+top_level = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_rt8s0")
+position = Vector2(573, 1001)
+scale = Vector2(25.68, 11.3438)
+texture = ExtResource("1_ao4l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+top_level = true
+position = Vector2(589, 860)
+scale = Vector2(1.00158, 1.00354)
+shape = SubResource("RectangleShape2D_bvkul")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-343, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWall"]
 modulate = Color(0.192556, 0.192556, 0.192556, 1)
 top_level = true
 texture_filter = 1
-position = Vector2(576, 610)
-scale = Vector2(18, 1.25)
+position = Vector2(-123, 254)
+scale = Vector2(3.75001, 12.2969)
 texture = ExtResource("1_ao4l5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(573, 612)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(106, -41)
 scale = Vector2(18, 1.25)
 shape = SubResource("RectangleShape2D_3dqk3")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1272, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall"]
+modulate = Color(0.192556, 0.192556, 0.192556, 1)
+top_level = true
+texture_filter = 1
+position = Vector2(1270, 259)
+scale = Vector2(3.75001, 12.2969)
+texture = ExtResource("1_ao4l5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(114, -44)
+scale = Vector2(18, 1.25)
+shape = SubResource("RectangleShape2D_3dqk3")
+
+[node name="BackGround" type="Sprite2D" parent="."]
 modulate = Color(0.507314, 0.507314, 0.507314, 1)
 texture_filter = 1
 position = Vector2(576, 319)
@@ -31,7 +99,5 @@ scale = Vector2(18, 10.3438)
 texture = ExtResource("1_ao4l5")
 
 [node name="Character" parent="." instance=ExtResource("2_dt1wi")]
-position = Vector2(1135, 540)
-
-[node name="Camera2D" type="Camera2D" parent="Character"]
-zoom = Vector2(2, 3)
+position = Vector2(1118, 593)
+scale = Vector2(0.7, 0.7)
