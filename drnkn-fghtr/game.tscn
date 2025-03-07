@@ -88,10 +88,12 @@ scale = Vector2(0.7, 0.7)
 
 [node name="PauseScreen" parent="." instance=ExtResource("5_7lpox")]
 visible = false
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 432.0
-offset_top = 206.0
-offset_right = 432.0
-offset_bottom = 206.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -8.0
+grow_horizontal = 1
+grow_vertical = 1
