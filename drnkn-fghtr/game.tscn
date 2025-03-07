@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=10 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
+[ext_resource type="Script" path="res://game.gd" id="1_hej6x"]
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
+[ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -22,6 +24,7 @@ size = Vector2(1193.5, 443)
 size = Vector2(26.1666, 596)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hej6x")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -82,3 +85,13 @@ texture = ExtResource("1_ao4l5")
 [node name="Character" parent="." instance=ExtResource("2_dt1wi")]
 position = Vector2(1118, 593)
 scale = Vector2(0.7, 0.7)
+
+[node name="PauseScreen" parent="." instance=ExtResource("5_7lpox")]
+visible = false
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 432.0
+offset_top = 206.0
+offset_right = 432.0
+offset_bottom = 206.0
