@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=11 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
 [ext_resource type="Script" path="res://game.gd" id="1_hej6x"]
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
+[ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -97,3 +98,6 @@ offset_right = -1.0
 offset_bottom = -8.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Mob" parent="." instance=ExtResource("6_1qwol")]
+position = Vector2(189, 573)
