@@ -101,3 +101,5 @@ grow_vertical = 1
 
 [node name="Mob" parent="." instance=ExtResource("6_1qwol")]
 position = Vector2(189, 573)
+
+[editable path="Mob"]

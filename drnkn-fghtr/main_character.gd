@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var knockbackPower: int = 200
+@onready var mob: Mob = $"../Mob"
 
 enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
