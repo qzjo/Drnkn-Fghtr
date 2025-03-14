@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var knockbackPower: int = 200
 @onready var mob: Mob = $"../Mob"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
@@ -15,6 +16,7 @@ func _ready() -> void:
 		if body is Mob:
 			knockback(body.position)
 	)
+	$Arm.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -28,6 +30,18 @@ func _physics_process(delta: float) -> void:
 			apply_knockback(delta)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("punch"):
+		animation_player.play("punch")
+
+func _input(event):
+	if event.is_action_pressed("punch"):  # Check if the attack button is pressed
+		punch()
+
+func punch():
+	if not $AnimationPlayer.is_playing():  # Prevent attack spam
+		play_attack_animation()
+
 
 func handle_movement():
 	"""Handles normal movement and jumping."""
@@ -41,6 +55,13 @@ func handle_movement():
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		
+func is_attacking() -> bool:
+	return $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch"
+
+
+
 
 func knockback(mob_position: Vector2):
 	"""Applies knockback away from the enemy."""
@@ -60,3 +81,11 @@ func apply_knockback(delta: float):
 
 	if knockback_timer <= 0:
 		current_state = State.NORMAL  # Return to normal movement
+
+func play_attack_animation():
+	$AnimationPlayer.play("punch")
+	$Arm.set_deferred("disabled", false)
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "punch":  # Ensure it's the attack animation
+		$Arm.set_deferred("disabled", true)

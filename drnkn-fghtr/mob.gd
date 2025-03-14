@@ -11,10 +11,7 @@ var current_state: int = State.CHASING  # Start in chasing mode
 var knockback_timer: float = 0.0  # Timer for knockback duration
 
 func _ready() -> void:
-	hitbox.body_entered.connect(func (body: Node) -> void:
-		if body is Player:
-			knockback()
-	)
+	hitbox.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -52,3 +49,10 @@ func apply_knockback(delta: float):
 
 	if knockback_timer <= 0:
 		current_state = State.CHASING  # Return to chasing mode
+
+
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		var player := body as Player
+		if player.is_attacking():  # Only knockback if attack is happening
+			knockback()
