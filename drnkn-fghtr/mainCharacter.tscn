@@ -113,7 +113,7 @@ position = Vector2(-45.375, -0.249999)
 scale = Vector2(0.394531, 0.945313)
 texture = ExtResource("1_jj3j1")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["player_attack"]]
 unique_name_in_owner = true
 
 [node name="Body" type="CollisionShape2D" parent="Hitbox"]

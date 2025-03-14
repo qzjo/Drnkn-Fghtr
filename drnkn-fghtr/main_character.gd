@@ -6,17 +6,19 @@ const JUMP_VELOCITY = -400.0
 @onready var knockbackPower: int = 200
 @onready var mob: Mob = $"../Mob"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var health: int = 100
+
 
 enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
 var knockback_timer: float = 0.0  # Timer for knockback duration
 
 func _ready() -> void:
+	$Arm.set_deferred("disabled", true)
 	hitbox.body_entered.connect(func (body: Node) -> void:
 		if body is Mob:
 			knockback(body.position)
 	)
-	$Arm.set_deferred("disabled", true)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -81,6 +83,16 @@ func apply_knockback(delta: float):
 
 	if knockback_timer <= 0:
 		current_state = State.NORMAL  # Return to normal movement
+
+func take_damage():
+	health -= 100  
+	print("damage")
+	if health <= 0:
+		die()
+
+func die():
+	queue_free()
+
 
 func play_attack_animation():
 	$AnimationPlayer.play("punch")
