@@ -1,4 +1,0 @@
-#RyuInputHandler.gd
-extends GeneralInputHandler
-
-
