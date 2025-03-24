@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=15 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
+[ext_resource type="PackedScene" uid="uid://borwixbj0ve86" path="res://Assets/pickup.tscn" id="7_jgjom"]
+[ext_resource type="Script" path="res://beer.gd" id="8_rfu57"]
+[ext_resource type="Texture2D" uid="uid://yht5jov05pke" path="res://Assets/placeholderbeer.jpg" id="9_5o20a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -23,6 +26,12 @@ size = Vector2(1193.5, 443)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqk3"]
 size = Vector2(26.1666, 596)
+
+[sub_resource type="Resource" id="Resource_nlyme"]
+script = ExtResource("8_rfu57")
+healing_amount = 100
+display_name = ""
+texture = ExtResource("9_5o20a")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hej6x")
@@ -101,5 +110,9 @@ grow_vertical = 1
 
 [node name="Mob" parent="." instance=ExtResource("6_1qwol")]
 position = Vector2(189, 573)
+
+[node name="Pickup" parent="." instance=ExtResource("7_jgjom")]
+position = Vector2(755, 624)
+item = SubResource("Resource_nlyme")
 
 [editable path="Mob"]
