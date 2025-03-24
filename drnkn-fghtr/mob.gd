@@ -2,7 +2,7 @@ class_name Mob extends CharacterBody2D
 
 @onready var target = $"../Character"
 var health: int = 100
-const speed = 200.0
+const speed = 100.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 500
 var is_dead = false

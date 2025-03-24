@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=16 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
-[ext_resource type="Script" path="res://game.gd" id="1_hej6x"]
+[ext_resource type="Script" uid="uid://y542j04og24y" path="res://game.gd" id="1_hej6x"]
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
+[ext_resource type="Script" uid="uid://bo40apvrj6vs5" path="res://hotbar.gd" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -23,6 +24,34 @@ size = Vector2(1193.5, 443)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqk3"]
 size = Vector2(26.1666, 596)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryrav"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eow3j"]
+bg_color = Color(0.474593, 0.927136, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5wjh"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
+bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_hej6x")
@@ -101,5 +130,98 @@ grow_vertical = 1
 
 [node name="Mob" parent="." instance=ExtResource("6_1qwol")]
 position = Vector2(189, 573)
+
+[node name="Healthbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = 523.0
+offset_right = 236.0
+offset_bottom = 558.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Healthbar"]
+modulate = Color(1, 1, 1, 0.929412)
+layout_mode = 0
+offset_top = 6.0
+offset_right = 225.0
+offset_bottom = 33.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ryrav")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eow3j")
+value = 59.0
+
+[node name="Hotbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_eow3j")
+
+[node name="Background" type="Panel" parent="Hotbar"]
+modulate = Color(1, 1, 1, 0.929412)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00954861
+anchor_top = 0.865741
+anchor_right = 0.204861
+anchor_bottom = 0.967593
+offset_left = 10.6181
+offset_top = 525.37
+offset_right = 227.806
+offset_bottom = 584.296
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5wjh")
+
+[node name="Organizer" type="HBoxContainer" parent="Hotbar/Background"]
+modulate = Color(1, 1, 1, 0.929412)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 216.0
+offset_bottom = 57.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Box1" type="Panel" parent="Hotbar/Background/Organizer"]
+modulate = Color(1, 1, 1, 0.929412)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
+
+[node name="Label" type="Label" parent="Hotbar/Background/Organizer/Box1"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.02083
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Box2" type="Panel" parent="Hotbar/Background/Organizer"]
+modulate = Color(1, 1, 1, 0.929412)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
+
+[node name="Label" type="Label" parent="Hotbar/Background/Organizer/Box2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.02083
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Box3" type="Panel" parent="Hotbar/Background/Organizer"]
+modulate = Color(1, 1, 1, 0.929412)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
+
+[node name="Label" type="Label" parent="Hotbar/Background/Organizer/Box3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.02083
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [editable path="Mob"]

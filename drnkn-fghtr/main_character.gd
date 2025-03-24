@@ -1,12 +1,16 @@
 class_name Player extends CharacterBody2D
 
+
+@onready var healthbar: ProgressBar = $"../Healthbar/ProgressBar"
+
 @onready var hitbox: Area2D = %Hitbox
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var knockbackPower: int = 200
 @onready var mob: Mob = $"../Mob"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-var health: int = 100
+var max_health: int = 1000.0
+var health: int = 1000.0
 
 
 enum State { NORMAL, KNOCKBACK }
@@ -14,6 +18,11 @@ var current_state: int = State.NORMAL
 var knockback_timer: float = 0.0  # Timer for knockback duration
 
 func _ready() -> void:
+	
+
+	healthbar.max_value = max_health
+	healthbar.value = health # Replace with function body.
+	
 	$Arm.set_deferred("disabled", true)
 	hitbox.body_entered.connect(func (body: Node) -> void:
 		if body is Mob:
@@ -39,11 +48,14 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("punch"):  # Check if the attack button is pressed
 		punch()
+		
+	if event.is_action_pressed("pickup"):
+		$AnimationPlayer.play("punch")
+		print("picked")
 
 func punch():
 	if not $AnimationPlayer.is_playing():  # Prevent attack spam
 		play_attack_animation()
-
 
 func handle_movement():
 	"""Handles normal movement and jumping."""
@@ -61,9 +73,6 @@ func handle_movement():
 		
 func is_attacking() -> bool:
 	return $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch"
-
-
-
 
 func knockback(mob_position: Vector2):
 	"""Applies knockback away from the enemy."""
@@ -86,10 +95,14 @@ func apply_knockback(delta: float):
 
 func take_damage():
 	health -= 100  
+	updateHealth()
 	print("damage")
 	if health <= 0:
 		die()
 
+func updateHealth():
+	healthbar.value = health
+	
 func die():
 	queue_free()
 
