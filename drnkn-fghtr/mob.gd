@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount: int):
 	if is_dead: 
 		return
-	health -= 100
+	health -= 20
 	print("Mob took", amount, "damage! Health:", health)
 
 	if health <= 0:

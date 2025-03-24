@@ -81,7 +81,7 @@ func apply_knockback(delta: float):
 	if knockback_timer <= 0:
 		current_state = State.NORMAL  # Return to normal movement
 
-func take_damage(amount: int = 100):
+func take_damage(amount: int = 20):
 	health -= amount
 	print("damage taken:", amount)
 	if health <= 0:
