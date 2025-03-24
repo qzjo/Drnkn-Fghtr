@@ -11,7 +11,7 @@ var current_state: int = State.CHASING  # Start in chasing mode
 var knockback_timer: float = 0.0  # Timer for knockback duration
 
 func _ready() -> void:
-	hitbox.body_entered.connect(_on_body_entered)
+	pass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -64,14 +64,19 @@ func apply_knockback(delta: float):
 	if knockback_timer <= 0:
 		current_state = State.CHASING  # Return to chasing mode
 
-func _on_Hitbox_area_entered(area):
-	if area.is_in_group("player_attack"):
-		take_damage(100)
 
-func _on_body_entered(body: Node) -> void:
+
+func _on_hitbox_body_entered(body: Node) -> void:
+	if not $Hitbox.monitoring:
+		return
+		
+
 	if body is Player:
 		var player := body as Player
 		if not player.is_attacking():
 			player.take_damage()
 		if player.is_attacking():  
 			knockback()
+		$Hitbox.set_deferred("monitoring", false)
+		await get_tree().create_timer(0.5).timeout
+		$Hitbox.set_deferred("monitoring", true)

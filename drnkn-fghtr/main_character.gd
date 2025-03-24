@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 @onready var mob: Mob = $"../Mob"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var health: int = 100
-
+var attacking: bool = false  # Tracks whether the player is currently attacking
 
 enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
@@ -15,9 +15,11 @@ var knockback_timer: float = 0.0  # Timer for knockback duration
 
 func _ready() -> void:
 	$Arm.set_deferred("disabled", true)
+	$Hitbox.set_deferred("monitoring", false)  # Ensure hitbox starts off
+
 	hitbox.body_entered.connect(func (body: Node) -> void:
-		if body is Mob:
-			knockback(body.position)
+		if body is Mob and attacking:  # Only deal damage if attacking
+			body.take_damage(100)
 	)
 
 func _physics_process(delta: float) -> void:
@@ -34,16 +36,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("punch"):
-		animation_player.play("punch")
+		punch()
 
 func _input(event):
-	if event.is_action_pressed("punch"):  # Check if the attack button is pressed
+	if event.is_action_pressed("punch"):
 		punch()
 
 func punch():
-	if not $AnimationPlayer.is_playing():  # Prevent attack spam
+	if not animation_player.is_playing():
 		play_attack_animation()
-
 
 func handle_movement():
 	"""Handles normal movement and jumping."""
@@ -57,13 +58,9 @@ func handle_movement():
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-		
+
 func is_attacking() -> bool:
-	return $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "punch"
-
-
-
+	return attacking  # Now correctly returns the attack state
 
 func knockback(mob_position: Vector2):
 	"""Applies knockback away from the enemy."""
@@ -84,20 +81,21 @@ func apply_knockback(delta: float):
 	if knockback_timer <= 0:
 		current_state = State.NORMAL  # Return to normal movement
 
-func take_damage():
-	health -= 100  
-	print("damage")
+func take_damage(amount: int = 100):
+	health -= amount
+	print("damage taken:", amount)
 	if health <= 0:
 		die()
 
 func die():
 	queue_free()
 
-
 func play_attack_animation():
-	$AnimationPlayer.play("punch")
-	$Arm.set_deferred("disabled", false)
+	attacking = true  # Set attacking state to true
+	animation_player.play("punch")
+	$Hitbox.set_deferred("monitoring", true)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "punch":  # Ensure it's the attack animation
-		$Arm.set_deferred("disabled", true)
+	if anim_name == "punch":
+		attacking = false  # Reset attacking state
+		$Hitbox.set_deferred("monitoring", false)  # Disable hitbox after attack ends
