@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
-[ext_resource type="Script" uid="uid://bo40apvrj6vs5" path="res://hotbar.gd" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://co2heqs6tfsuw" path="res://glass.tscn" id="7_eow3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -147,14 +147,13 @@ offset_right = 225.0
 offset_bottom = 33.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ryrav")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eow3j")
-value = 59.0
+value = 100.0
 
 [node name="Hotbar" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_eow3j")
 
 [node name="Background" type="Panel" parent="Hotbar"]
 modulate = Color(1, 1, 1, 0.929412)
@@ -224,4 +223,8 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Glass" parent="." instance=ExtResource("7_eow3j")]
+position = Vector2(947, 613)
+
+[editable path="Character"]
 [editable path="Mob"]

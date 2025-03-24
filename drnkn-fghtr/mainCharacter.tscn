@@ -100,7 +100,7 @@ _data = {
 &"punch": SubResource("Animation_ho0uc")
 }
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ef64n")
 
 [node name="Body" type="Sprite2D" parent="."]

@@ -49,7 +49,7 @@ func _input(event):
 	if event.is_action_pressed("punch"):  # Check if the attack button is pressed
 		punch()
 		
-	if event.is_action_pressed("pickup"):
+	if event.is_action_pressed("pick_up"):
 		$AnimationPlayer.play("punch")
 		print("picked")
 

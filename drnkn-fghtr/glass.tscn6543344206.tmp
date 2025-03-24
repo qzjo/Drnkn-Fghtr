@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://co2heqs6tfsuw"]
+
+[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://icon.svg" id="1_fvmfx"]
+[ext_resource type="Script" uid="uid://renasxcy0k2" path="res://glass.gd" id="1_ykn3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvmfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykn3o"]
+size = Vector2(20, 23.9865)
+
+[node name="Glass" type="RigidBody2D"]
+script = ExtResource("1_ykn3o")
+throw_force = null
+damage = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_fvmfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.65482, 2.55838)
+shape = SubResource("RectangleShape2D_fvmfx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="area" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -80.5)
+scale = Vector2(8.88, 8.88)
+shape = SubResource("RectangleShape2D_ykn3o")

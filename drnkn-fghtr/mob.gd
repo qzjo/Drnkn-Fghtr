@@ -1,7 +1,7 @@
 class_name Mob extends CharacterBody2D
 
 @onready var target = $"../Character"
-var health: int = 100
+@export var health: int = 100
 const speed = 100.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 500
@@ -26,9 +26,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func take_damage(amount: int):
+	health -= 100
 	if is_dead: 
 		return
-	health -= 100
 	print("Mob took", amount, "damage! Health:", health)
 
 	if health <= 0:
