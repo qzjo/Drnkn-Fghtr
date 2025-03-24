@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykn3o"]
 size = Vector2(20, 23.9865)
 
-[node name="Glass" type="RigidBody2D"]
+[node name="Throwable" type="RigidBody2D"]
 script = ExtResource("1_ykn3o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

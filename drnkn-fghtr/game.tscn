@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=17 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
 [ext_resource type="PackedScene" uid="uid://co2heqs6tfsuw" path="res://glass.tscn" id="7_eow3j"]
+[ext_resource type="Script" path="res://hotbar.gd" id="7_qdrrb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -154,6 +155,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_qdrrb")
 
 [node name="Background" type="Panel" parent="Hotbar"]
 modulate = Color(1, 1, 1, 0.929412)
@@ -225,6 +227,8 @@ vertical_alignment = 1
 
 [node name="Glass" parent="." instance=ExtResource("7_eow3j")]
 position = Vector2(947, 613)
+
+[connection signal="selectedd" from="Glass" to="Hotbar" method="_on_glass_selectedd"]
 
 [editable path="Character"]
 [editable path="Mob"]
