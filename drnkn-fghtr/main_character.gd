@@ -65,11 +65,11 @@ func is_attacking() -> bool:
 
 func knockback(mob_position: Vector2):
 	"""Applies knockback away from the enemy."""
-	if velocity.x == 0:  # Only knockback if standing still
-		var knockbackDirection = (position - mob_position).normalized() * knockbackPower
-		velocity = knockbackDirection
-		current_state = State.KNOCKBACK
-		knockback_timer = 0.3  # Knockback lasts for 0.3 seconds
+	
+	var knockbackDirection = (position - mob_position).normalized() * knockbackPower
+	velocity = knockbackDirection
+	current_state = State.KNOCKBACK
+	knockback_timer = 0.3  # Knockback lasts for 0.3 seconds
 
 func apply_knockback(delta: float):
 	"""Handles knockback duration and gravity application."""
