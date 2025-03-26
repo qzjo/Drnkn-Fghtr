@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody2D
 
+@onready var hotbar: HBoxContainer = $UI/Hotbar
 @onready var hitbox: Area2D = %Hitbox
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -99,3 +100,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "punch":
 		attacking = false  # Reset attacking state
 		$Hitbox.set_deferred("monitoring", false)  # Disable hitbox after attack ends
+## HOTBAR
+
+func add_item(stats, skill):
+	hotbar.add_item(stats,skill)

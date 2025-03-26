@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=13 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
+[ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://slot.tscn" id="3_8jbmg"]
+[ext_resource type="Script" path="res://weapons.gd" id="3_fa3b6"]
+[ext_resource type="Script" path="res://hotbar.gd" id="3_sm2wm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
 size = Vector2(27.5, 64.25)
@@ -142,5 +145,42 @@ position = Vector2(4.76837e-07, -2)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_y7rmm")
 
+[node name="Weapons" type="Node2D" parent="."]
+position = Vector2(604.72, 553)
+scale = Vector2(0.64, 0.64)
+script = ExtResource("3_fa3b6")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" type="HBoxContainer" parent="UI"]
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -95.0
+offset_right = 238.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.64, 0.64)
+script = ExtResource("3_sm2wm")
+
+[node name="slot" parent="UI/Hotbar" instance=ExtResource("3_8jbmg")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="slot2" parent="UI/Hotbar" instance=ExtResource("3_8jbmg")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="slot3" parent="UI/Hotbar" instance=ExtResource("3_8jbmg")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
+[connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_index"]

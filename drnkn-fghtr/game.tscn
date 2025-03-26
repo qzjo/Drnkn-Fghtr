@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=16 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
+[ext_resource type="PackedScene" uid="uid://bqn8wthohfkrn" path="res://abstract_item.tscn" id="7_xxuik"]
+[ext_resource type="Resource" uid="uid://cqnvm08sietfg" path="res://Resources/Items/Dagger.tres" id="8_fi2gd"]
+[ext_resource type="Resource" uid="uid://bgs3ch2ualrf8" path="res://Resources/Skills/Aura.tres" id="9_ccjwh"]
+[ext_resource type="Resource" uid="uid://c8kjfvrk7fb3h" path="res://Resources/Items/Chair.tres" id="10_xctxl"]
+[ext_resource type="Resource" uid="uid://dt7ul8yh5lgk2" path="res://Resources/Items/Scroll.tres" id="11_pu67y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
 texture = ExtResource("1_bh7tu")
@@ -100,6 +105,21 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Mob" parent="." instance=ExtResource("6_1qwol")]
-position = Vector2(189, 573)
+position = Vector2(-6060, 5508)
+
+[node name="AbstractItem" parent="." instance=ExtResource("7_xxuik")]
+position = Vector2(902, 603)
+stats = ExtResource("8_fi2gd")
+skill = ExtResource("9_ccjwh")
+
+[node name="AbstractItem2" parent="." instance=ExtResource("7_xxuik")]
+position = Vector2(518, 602)
+stats = ExtResource("10_xctxl")
+skill = ExtResource("9_ccjwh")
+
+[node name="AbstractItem3" parent="." instance=ExtResource("7_xxuik")]
+position = Vector2(253, 601)
+stats = ExtResource("11_pu67y")
+skill = ExtResource("9_ccjwh")
 
 [editable path="Mob"]
