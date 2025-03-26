@@ -75,7 +75,8 @@ func _on_hitbox_body_entered(body: Node) -> void:
 		var player := body as Player
 		if not player.is_attacking():
 			player.take_damage()
-		if player.is_attacking():  
+		if player.is_attacking():
+			HitStopManager.hit_stop_short()
 			knockback()
 		$Hitbox.set_deferred("monitoring", false)
 		await get_tree().create_timer(0.5).timeout
