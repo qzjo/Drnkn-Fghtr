@@ -108,16 +108,19 @@ grow_vertical = 1
 position = Vector2(69, 571)
 
 [node name="AbstractItem" parent="." instance=ExtResource("7_xxuik")]
+top_level = true
 position = Vector2(902, 603)
 stats = ExtResource("8_fi2gd")
 skill = ExtResource("9_ccjwh")
 
 [node name="AbstractItem2" parent="." instance=ExtResource("7_xxuik")]
+top_level = true
 position = Vector2(518, 602)
 stats = ExtResource("10_xctxl")
 skill = ExtResource("9_ccjwh")
 
 [node name="AbstractItem3" parent="." instance=ExtResource("7_xxuik")]
+top_level = true
 position = Vector2(253, 601)
 stats = ExtResource("11_pu67y")
 skill = ExtResource("9_ccjwh")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://abstract_item.gd" id="1_u73qj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkxkw"]
+size = Vector2(20, 83.0159)
 
 [node name="AbstractItem" type="Sprite2D"]
 script = ExtResource("1_u73qj")
@@ -11,6 +12,9 @@ script = ExtResource("1_u73qj")
 scale = Vector2(2.52, 2.52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -31.5079)
+scale = Vector2(3.06349, 1)
 shape = SubResource("RectangleShape2D_jkxkw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_player_exited"]

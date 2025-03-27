@@ -9,7 +9,6 @@ var current_index : int:
 		reset_focus()
 		set_focus()
 
-
 func _ready() -> void:
 	current_index = 0
 
