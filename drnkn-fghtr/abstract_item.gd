@@ -28,7 +28,7 @@ func _on_player_exited(body: Node2D) -> void:
 func pickup_item() -> void:
 	var body = character
 	if inarea:
-		print("LOL")
+		print("Picked up!")
 		call_deferred("reparent", body, find_child("Weapons"))
 		queue_free()
 		#position = body.position
