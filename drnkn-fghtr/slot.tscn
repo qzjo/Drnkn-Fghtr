@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cv7y70o074hdb"]
 
-[ext_resource type="Script" path="res://slot.gd" id="1_wch65"]
+[ext_resource type="Script" path="res://DragSlot.gd" id="1_0v6yt"]
 
 [node name="slot" type="Button"]
 custom_minimum_size = Vector2(40, 40)
@@ -9,6 +9,6 @@ offset_bottom = 8.0
 focus_mode = 1
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("1_wch65")
+script = ExtResource("1_0v6yt")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

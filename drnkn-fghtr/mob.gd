@@ -2,20 +2,29 @@ class_name Mob extends CharacterBody2D
 
 @onready var target = $"../Character"
 var health: int = 100
-const speed = 200.0
+const speed = 120.0
+const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 500
 var is_dead = false
 enum State { CHASING, KNOCKBACK }
 var current_state: int = State.CHASING  # Start in chasing mode
 var knockback_timer: float = 0.0  # Timer for knockback duration
+@onready var mob_healthbar: ProgressBar = $mobHealthbar
+@onready var animation_player: AnimationPlayer = $mobHealthbar/AnimationPlayer
+@export var dmg:int = 5
+
+signal mobdied
+signal mobhit
 
 func _ready() -> void:
-	pass
+	mob_healthbar.self_modulate.a = 0.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity.y += GRAVITY * delta
+	else:
+		velocity.y = 0
 	
 	match current_state:
 		State.CHASING:
@@ -24,23 +33,32 @@ func _physics_process(delta: float) -> void:
 			apply_knockback(delta)
 
 	move_and_slide()
-
-func take_damage(amount: int):
+	
+	
+func take_damage(amount:int):
+	
+	mobhit.emit()
+	
+	
+	
 	if is_dead: 
 		return
-	health -= 20
-	print("Mob took", amount, "damage! Health:", health)
+	health -= dmg
+	print("Mob took ", amount, " damage! Health:", health)
 
 	if health <= 0:
 		is_dead = true
+		mobdied.emit()
 		set_deferred("monitoring", false)  
 		queue_free()
 
 
 func chase_player():
+
+	
 	if target and is_instance_valid(target):
 		var direction = (target.position - position).normalized()
-		velocity = direction * speed
+		velocity.x = direction.x * speed
 	else:
 		get_tree().quit()
 
