@@ -14,6 +14,8 @@ enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
 var knockback_timer: float = 0.0  # Timer for knockback duration
 
+signal plrdied
+
 func _ready() -> void:
 	$Arm.set_deferred("disabled", true)
 	$Hitbox.set_deferred("monitoring", false)  # Ensure hitbox starts off
@@ -89,7 +91,7 @@ func take_damage(amount: int = 20):
 		die()
 
 func die():
-	queue_free()
+	plrdied.emit()
 
 func play_attack_animation():
 	attacking = true  # Set attacking state to true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=19 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://hotbar.gd" id="3_sm2wm"]
 [ext_resource type="Script" path="res://progress_bar.gd" id="6_bwyiu"]
 [ext_resource type="Script" path="res://wave_bar.gd" id="7_i77pw"]
+[ext_resource type="Script" path="res://death_screen.gd" id="8_tny0x"]
+[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://icon.svg" id="9_nq7ft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
 size = Vector2(27.5, 64.25)
@@ -266,7 +268,81 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="DeathScreen" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_tny0x")
+
+[node name="Main" type="ColorRect" parent="UI/DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -139.0
+offset_right = 253.5
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.135012, 0.135012, 0.135012, 1)
+
+[node name="Image" type="TextureRect" parent="UI/DeathScreen/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -103.0
+offset_right = 30.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.996402)
+texture = ExtResource("9_nq7ft")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathScreen/Main"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -27.0
+offset_right = 80.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.994784, 1)
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Button3" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="plrdied" from="." to="UI/DeathScreen" method="_on_character_plrdied"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
 [connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_index"]
+[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button" to="UI/DeathScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button2" to="UI/DeathScreen" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button3" to="UI/DeathScreen" method="_on_button_3_pressed"]
