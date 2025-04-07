@@ -1,12 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=13 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://slot.tscn" id="3_8jbmg"]
 [ext_resource type="Script" path="res://weapons.gd" id="3_fa3b6"]
 [ext_resource type="Script" path="res://hotbar.gd" id="3_sm2wm"]
-[ext_resource type="Script" path="res://progress_bar.gd" id="6_bwyiu"]
-[ext_resource type="Script" path="res://wave_bar.gd" id="7_i77pw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
 size = Vector2(27.5, 64.25)
@@ -105,22 +103,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rmm"]
 size = Vector2(32, 64)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4lwq"]
-bg_color = Color(0.184314, 0.184314, 0.184314, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj127"]
-bg_color = Color(0.564706, 0.933333, 0.564706, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
-
 [node name="Character" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
@@ -179,10 +161,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -543.0
-offset_top = -107.0
-offset_right = -175.0
-offset_bottom = 13.0
+offset_left = -130.0
+offset_top = -108.0
+offset_right = 238.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.64, 0.64)
@@ -202,69 +184,6 @@ layout_mode = 2
 texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
-
-[node name="Health" type="ProgressBar" parent="UI"]
-self_modulate = Color(1, 1, 1, 0.705882)
-anchors_preset = -1
-anchor_left = 0.0286458
-anchor_top = 0.782407
-anchor_right = 0.233507
-anchor_bottom = 0.824074
-theme_override_styles/background = SubResource("StyleBoxFlat_y4lwq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_wj127")
-value = 100.0
-rounded = true
-show_percentage = false
-script = ExtResource("6_bwyiu")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="UI/Health"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "Health: 100"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="WaveBar" type="ProgressBar" parent="UI"]
-anchors_preset = -1
-anchor_left = 0.284722
-anchor_top = 0.029321
-anchor_right = 0.716146
-anchor_bottom = 0.0895062
-grow_horizontal = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_y4lwq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_wj127")
-max_value = 1.0
-value = 1.0
-show_percentage = false
-script = ExtResource("7_i77pw")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="UI/WaveBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.433602
-anchor_top = 0.205128
-anchor_right = 0.566398
-anchor_bottom = 0.794872
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "Enemies Left: Null"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
