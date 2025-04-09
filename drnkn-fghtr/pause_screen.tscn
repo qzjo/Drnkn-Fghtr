@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://pause_screen.gd" id="1_foau2"]
 
 [node name="PauseScreen" type="Control"]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

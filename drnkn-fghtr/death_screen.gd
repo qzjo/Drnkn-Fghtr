@@ -1,6 +1,8 @@
 extends Panel
 
 @onready var player = get_tree().current_scene.find_child("Character")
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,5 +28,8 @@ func _on_button_3_pressed() -> void:
 
 
 func _on_character_plrdied() -> void:
-	player.visible = false
+	animation_player.play("PlayerfadeFN")
+	await animation_player.animation_finished
+	get_tree().paused = true
 	visible = true # Replace with function body.
+	animation_player.play("FadeInDeath")

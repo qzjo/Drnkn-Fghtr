@@ -113,31 +113,27 @@ grow_vertical = 1
 position = Vector2(69, 571)
 
 [node name="Mob2" parent="." groups=["enemies"] instance=ExtResource("6_1qwol")]
-position = Vector2(239, 564)
+position = Vector2(281, 571)
 
 [node name="AbstractItem" parent="." instance=ExtResource("7_xxuik")]
-top_level = true
 position = Vector2(903, 567)
 texture = null
 stats = ExtResource("8_qutg8")
 skill = ExtResource("9_ccjwh")
 
 [node name="AbstractItem2" parent="." instance=ExtResource("7_xxuik")]
-top_level = true
 position = Vector2(614, 573)
 texture = null
 stats = ExtResource("10_3a145")
 skill = ExtResource("11_x52l3")
 
 [node name="AbstractItem3" parent="." instance=ExtResource("7_xxuik")]
-top_level = true
 position = Vector2(351, 575)
 texture = null
 stats = ExtResource("11_4ivja")
 skill = ExtResource("9_ccjwh")
 
 [node name="AbstractItem4" parent="." instance=ExtResource("7_xxuik")]
-top_level = true
 position = Vector2(61, 577)
 texture = null
 stats = ExtResource("11_4ivja")

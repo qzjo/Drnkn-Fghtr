@@ -7,6 +7,7 @@
 size = Vector2(19.5671, 78.4109)
 
 [node name="AbstractItem" type="Sprite2D"]
+top_level = true
 texture_filter = 1
 scale = Vector2(4.92, 4.92)
 texture = ExtResource("1_tmvd6")

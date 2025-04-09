@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=23 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
@@ -123,16 +123,83 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 anti_aliasing = false
 
+[sub_resource type="Animation" id="Animation_pg08n"]
+resource_name = "FadeInDeath"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.996078)]
+}
+
+[sub_resource type="Animation" id="Animation_chiwv"]
+resource_name = "PlayerfadeFN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dk7ie"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_niyhv"]
+_data = {
+"FadeInDeath": SubResource("Animation_pg08n"),
+"PlayerfadeFN": SubResource("Animation_chiwv"),
+"RESET": SubResource("Animation_dk7ie")
+}
+
 [node name="Character" type="CharacterBody2D"]
+process_mode = 3
 scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
 
 [node name="Body" type="Sprite2D" parent="."]
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
 position = Vector2(0, -2)
 scale = Vector2(1, 2)
 texture = ExtResource("1_jj3j1")
 
 [node name="ArmSprite" type="Sprite2D" parent="."]
+modulate = Color(0.099986, 0.099986, 0.099986, 1)
 position = Vector2(-45.375, -0.249999)
 scale = Vector2(0.394531, 0.945313)
 texture = ExtResource("1_jj3j1")
@@ -270,6 +337,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DeathScreen" type="Panel" parent="UI"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -337,6 +405,11 @@ text = "Main Menu"
 [node name="Button3" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_niyhv")
+}
 
 [connection signal="plrdied" from="." to="UI/DeathScreen" method="_on_character_plrdied"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
