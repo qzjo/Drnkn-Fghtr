@@ -9,10 +9,17 @@ const JUMP_VELOCITY = -400.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var health: int = 100
 var attacking: bool = false  # Tracks whether the player is currently attacking
+@onready var door: Area2D = $"../Door"
 
 enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
 var knockback_timer: float = 0.0  # Timer for knockback duration
+
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
+
+
+
+
 
 signal plrdied
 
@@ -44,6 +51,15 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("punch"):
 		punch()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
+		
+		
 
 func punch():
 	if not animation_player.is_playing():

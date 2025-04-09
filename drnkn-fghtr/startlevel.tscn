@@ -1,22 +1,18 @@
-[gd_scene load_steps=19 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=17 format=4 uid="uid://djgepbqqbyh4f"]
 
-[ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
-[ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
-[ext_resource type="Script" path="res://game.gd" id="1_hej6x"]
-[ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="2_dt1wi"]
-[ext_resource type="Texture2D" uid="uid://b2sthky5ypml4" path="res://Assets/Background.png" id="4_i62u5"]
-[ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
-[ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
-[ext_resource type="PackedScene" uid="uid://bqn8wthohfkrn" path="res://abstract_item.tscn" id="7_xxuik"]
-[ext_resource type="Resource" path="res://Resources/Items/GlassTHREE.tres" id="8_qutg8"]
-[ext_resource type="Resource" uid="uid://bgs3ch2ualrf8" path="res://Resources/Skills/Aura.tres" id="9_ccjwh"]
-[ext_resource type="Resource" path="res://Resources/Items/knife.tres" id="10_3a145"]
-[ext_resource type="Resource" path="res://Resources/Items/GlassFOUR.tres" id="11_4ivja"]
-[ext_resource type="Resource" path="res://Resources/Skills/Stab.tres" id="11_x52l3"]
-[ext_resource type="Texture2D" uid="uid://dao1b2dvhcunn" path="res://Assets/Door.png" id="14_cmpnq"]
+[ext_resource type="Script" path="res://startlevel.gd" id="1_tw8g4"]
+[ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="2_4s778"]
+[ext_resource type="Texture2D" uid="uid://b2sthky5ypml4" path="res://Assets/Background.png" id="3_tsmo6"]
+[ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="4_7fuke"]
+[ext_resource type="PackedScene" uid="uid://dcejowwb6rr5e" path="res://mainCharacter.tscn" id="5_wcas7"]
+[ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="6_bqhkd"]
+[ext_resource type="PackedScene" uid="uid://yjhqrhqdly1m" path="res://quest_guy.tscn" id="8_0s4ol"]
+[ext_resource type="PackedScene" uid="uid://bi838x8ujmvhg" path="res://actionable.tscn" id="9_vh4mx"]
+[ext_resource type="Resource" uid="uid://cy36g4j24sa8g" path="res://Dialogue/main.dialogue" id="10_rmsvr"]
+[ext_resource type="Texture2D" uid="uid://dao1b2dvhcunn" path="res://Assets/Door.png" id="14_8nqkx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1ct2"]
-texture = ExtResource("1_bh7tu")
+texture = ExtResource("2_4s778")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -32,8 +28,14 @@ size = Vector2(1193.5, 443)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dqk3"]
 size = Vector2(26.1666, 596)
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_hej6x")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5t1g"]
+size = Vector2(132, 64.6882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5pmy"]
+size = Vector2(122, 203)
+
+[node name="StartLevel" type="Node2D"]
+script = ExtResource("1_tw8g4")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(0, -6)
@@ -67,7 +69,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(20.5, -69.75)
 scale = Vector2(0.565104, 1.21528)
-texture = ExtResource("4_i62u5")
+texture = ExtResource("3_tsmo6")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
 position = Vector2(1268, 324)
@@ -83,7 +85,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(204.5, -69.75)
 scale = Vector2(0.565104, 1.21528)
-texture = ExtResource("4_i62u5")
+texture = ExtResource("3_tsmo6")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 modulate = Color(0.366595, 0.366595, 0.366595, 1)
@@ -91,13 +93,13 @@ z_index = -4096
 texture_filter = 1
 position = Vector2(576, 319)
 scale = Vector2(18, 10.3438)
-texture = ExtResource("1_ao4l5")
+texture = ExtResource("4_7fuke")
 
-[node name="Character" parent="." instance=ExtResource("2_dt1wi")]
+[node name="Character" parent="." instance=ExtResource("5_wcas7")]
 position = Vector2(1099, 535)
 scale = Vector2(1.06, 1.3)
 
-[node name="PauseScreen" parent="." instance=ExtResource("5_7lpox")]
+[node name="PauseScreen" parent="." instance=ExtResource("6_bqhkd")]
 visible = false
 anchors_preset = 0
 anchor_right = 0.0
@@ -109,52 +111,33 @@ offset_bottom = -8.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Mob" parent="." groups=["enemies"] instance=ExtResource("6_1qwol")]
-position = Vector2(69, 571)
-
-[node name="Mob2" parent="." groups=["enemies"] instance=ExtResource("6_1qwol")]
-position = Vector2(281, 571)
-
-[node name="AbstractItem" parent="." instance=ExtResource("7_xxuik")]
-position = Vector2(903, 567)
-texture = null
-stats = ExtResource("8_qutg8")
-skill = ExtResource("9_ccjwh")
-
-[node name="AbstractItem2" parent="." instance=ExtResource("7_xxuik")]
-position = Vector2(614, 573)
-texture = null
-stats = ExtResource("10_3a145")
-skill = ExtResource("11_x52l3")
-
-[node name="AbstractItem3" parent="." instance=ExtResource("7_xxuik")]
-position = Vector2(351, 575)
-texture = null
-stats = ExtResource("11_4ivja")
-skill = ExtResource("9_ccjwh")
-
-[node name="AbstractItem4" parent="." instance=ExtResource("7_xxuik")]
-position = Vector2(61, 577)
-texture = null
-stats = ExtResource("11_4ivja")
-skill = ExtResource("9_ccjwh")
-
 [node name="bckgrnd" type="Sprite2D" parent="."]
 z_index = -100
 texture_filter = 1
 position = Vector2(579, 322)
-texture = ExtResource("4_i62u5")
+texture = ExtResource("3_tsmo6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -100
 texture_filter = 1
 position = Vector2(1086.25, 529)
 scale = Vector2(1.11739, 1.06316)
-texture = ExtResource("14_cmpnq")
+texture = ExtResource("14_8nqkx")
 
-[connection signal="mobdied" from="Mob" to="Character/UI/WaveBar" method="_on_mobdied"]
-[connection signal="mobdied" from="Mob2" to="Character/UI/WaveBar" method="_on_mobdied"]
+[node name="QuestGuy" parent="." instance=ExtResource("8_0s4ol")]
+position = Vector2(390, 539)
+
+[node name="Actionable" parent="QuestGuy" instance=ExtResource("9_vh4mx")]
+dialogue_resource = ExtResource("10_rmsvr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuestGuy/Actionable"]
+position = Vector2(56, -0.344086)
+shape = SubResource("RectangleShape2D_l5t1g")
+
+[node name="Door" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(1085, 528.5)
+shape = SubResource("RectangleShape2D_i5pmy")
 
 [editable path="Character"]
-[editable path="Mob"]
-[editable path="Mob2"]
