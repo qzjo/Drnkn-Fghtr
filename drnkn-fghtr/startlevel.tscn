@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://djgepbqqbyh4f"]
 
-[ext_resource type="Script" path="res://startlevel.gd" id="1_tw8g4"]
+[ext_resource type="Script" uid="uid://cr23ah7me603k" path="res://startlevel.gd" id="1_tw8g4"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="2_4s778"]
 [ext_resource type="Texture2D" uid="uid://b2sthky5ypml4" path="res://Assets/Background.png" id="3_tsmo6"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="4_7fuke"]
@@ -139,5 +139,8 @@ shape = SubResource("RectangleShape2D_l5t1g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(1085, 528.5)
 shape = SubResource("RectangleShape2D_i5pmy")
+
+[connection signal="area_entered" from="Door" to="." method="_on_door_area_entered"]
+[connection signal="area_exited" from="Door" to="." method="_on_door_area_exited"]
 
 [editable path="Character"]

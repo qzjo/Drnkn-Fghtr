@@ -2,14 +2,24 @@ extends Node2D
 
 @onready var character: Player = $Character
 @onready var door: Area2D = $Door
-@onready var next_level: PackedScene
-var player_in: Player = null
+var in_door_area = false
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	character.find_child("UI").visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	pass
+	if in_door_area and Input.is_action_just_pressed("ui_accept"):
+		get_tree().change_scene_to_file("res://game.tscn")
+
+
+
+func _on_door_area_entered(area: Area2D) -> void:
+	in_door_area = true
+
+
+func _on_door_area_exited(area: Area2D) -> void:
+	in_door_area = false
