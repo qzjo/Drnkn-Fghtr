@@ -4,7 +4,7 @@ extends Sprite2D
 
 @export var stats : Item
 @export var skill : Skill
-@export var uses = 5
+
 
 
 

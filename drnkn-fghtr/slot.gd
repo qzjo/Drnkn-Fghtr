@@ -9,6 +9,7 @@ class_name Slot
 @onready var mobs: = get_tree().get_nodes_in_group("enemies")
 
 
+
 @export var stats: Item = null:
 	set(value):
 		stats = value
@@ -22,7 +23,17 @@ class_name Slot
 
 
 func _ready() -> void:
+	
 	set_process_input(false)
+	
+	
+func remove_item():
+	var weaponHolder = player.find_child("Weapons")
+	var itm = weaponHolder.find_child("*AbstractItem*", true)
+	if itm:
+		itm.queue_free()
+
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("use"):
@@ -37,13 +48,23 @@ func use_item():
 
 	match skill: ## ADD ANY NEW THINGS
 		AURA:
+			
+			AURA.uses -= 1
+			if AURA.uses <= 0:
+				remove_item()
+				stats = null
+				skill = null
 			player.SPEED += 100.0
 			print(player.SPEED)
 			print("JJJ")
 		STAB:
-			if mobs.size() > 0:
+			STAB.uses -= 1
+			if STAB.uses <= 0:
+				remove_item()
+				stats = null
+			if mobs.size() >= 0:
 				for mob in mobs:
-					mob.dmg = 20
+					mob.dmg = 100
 			player.health += 50.0
 			print("LLL")
 			

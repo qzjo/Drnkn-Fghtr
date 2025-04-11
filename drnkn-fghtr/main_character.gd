@@ -19,8 +19,6 @@ var knockback_timer: float = 0.0  # Timer for knockback duration
 
 
 
-
-
 signal plrdied
 
 func _ready() -> void:

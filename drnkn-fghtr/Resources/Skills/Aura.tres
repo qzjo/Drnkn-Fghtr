@@ -6,4 +6,5 @@
 script = ExtResource("1_iwkcw")
 name = "Aura"
 description = ""
+uses = 0
 mana = 0.0
