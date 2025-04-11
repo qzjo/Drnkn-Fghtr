@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://dcejowwb6rr5e"]
 
-[ext_resource type="Script" uid="uid://lu7ulxl4c486" path="res://main_character.gd" id="1_ef64n"]
+[ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://slot.tscn" id="3_8jbmg"]
-[ext_resource type="Script" uid="uid://ddr25hd5qrp7b" path="res://weapons.gd" id="3_fa3b6"]
-[ext_resource type="Script" uid="uid://dijbft1h3415g" path="res://hotbar.gd" id="3_sm2wm"]
-[ext_resource type="Script" uid="uid://d2bseuilofrm3" path="res://progress_bar.gd" id="6_bwyiu"]
-[ext_resource type="Script" uid="uid://bpygf0hx6pxo7" path="res://wave_bar.gd" id="7_i77pw"]
-[ext_resource type="Script" uid="uid://cfg6rjs54d0kp" path="res://death_screen.gd" id="8_tny0x"]
+[ext_resource type="Script" path="res://weapons.gd" id="3_fa3b6"]
+[ext_resource type="Script" path="res://hotbar.gd" id="3_sm2wm"]
+[ext_resource type="Script" path="res://progress_bar.gd" id="6_bwyiu"]
+[ext_resource type="Script" path="res://wave_bar.gd" id="7_i77pw"]
+[ext_resource type="Script" path="res://death_screen.gd" id="8_tny0x"]
 [ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://icon.svg" id="9_nq7ft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
@@ -100,8 +100,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h70d6"]
 _data = {
-&"RESET": SubResource("Animation_wuuma"),
-&"punch": SubResource("Animation_ho0uc")
+"RESET": SubResource("Animation_wuuma"),
+"punch": SubResource("Animation_ho0uc")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rmm"]
@@ -182,9 +182,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_niyhv"]
 _data = {
-&"FadeInDeath": SubResource("Animation_pg08n"),
-&"PlayerfadeFN": SubResource("Animation_chiwv"),
-&"RESET": SubResource("Animation_dk7ie")
+"FadeInDeath": SubResource("Animation_pg08n"),
+"PlayerfadeFN": SubResource("Animation_chiwv"),
+"RESET": SubResource("Animation_dk7ie")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2p8p"]
@@ -227,7 +227,7 @@ shape = SubResource("RectangleShape2D_1di6h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_h70d6")
+"": SubResource("AnimationLibrary_h70d6")
 }
 
 [node name="BodyArea" type="CollisionShape2D" parent="."]
@@ -411,7 +411,7 @@ text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
-&"": SubResource("AnimationLibrary_niyhv")
+"": SubResource("AnimationLibrary_niyhv")
 }
 
 [node name="Direction" type="Marker2D" parent="."]

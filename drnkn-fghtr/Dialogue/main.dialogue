@@ -1,5 +1,15 @@
 ~ start
 
-QuestGuy: Ni hao!
+QuestGuy: ni hao kai lin
+- where is this place?
+	QuestGuy: this is my house
+	- how do i leave
+		QuestGuy: press f at the door
+		 	 - what if i don't wanna leave
+				QuestGuy: then ima kill you
+		 	 - ok thanks chat
+	- ok
+		QuestGuy: preciate it
+	 
 
 => END!

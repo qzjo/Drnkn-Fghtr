@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 HitStopManager="*res://HitStopManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+general/balloon_path="res://Dialogue/balloon.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
