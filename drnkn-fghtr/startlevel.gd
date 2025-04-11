@@ -7,6 +7,7 @@ var in_door_area = false
 
 
 func _ready() -> void:
+	get_tree().paused = false
 	character.find_child("UI").visible = false
 
 

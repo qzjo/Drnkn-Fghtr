@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://progress_bar.gd" id="6_bwyiu"]
 [ext_resource type="Script" path="res://wave_bar.gd" id="7_i77pw"]
 [ext_resource type="Script" path="res://death_screen.gd" id="8_tny0x"]
-[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://icon.svg" id="9_nq7ft"]
+[ext_resource type="Texture2D" uid="uid://cgnf4ncvjm0l0" path="res://Assets/DeathScreen.png" id="9_jrch1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
 size = Vector2(27.5, 64.25)
@@ -348,7 +348,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_tny0x")
 
-[node name="Main" type="ColorRect" parent="UI/DeathScreen"]
+[node name="TextureRect" type="TextureRect" parent="UI/DeathScreen"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -361,26 +362,9 @@ offset_right = 253.5
 offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.135012, 0.135012, 0.135012, 1)
+texture = ExtResource("9_jrch1")
 
-[node name="Image" type="TextureRect" parent="UI/DeathScreen/Main"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -103.0
-offset_right = 30.0
-offset_bottom = -43.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 0.996402)
-texture = ExtResource("9_nq7ft")
-expand_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathScreen/Main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathScreen/TextureRect"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -388,24 +372,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -27.0
-offset_right = 80.0
-offset_bottom = 105.0
+offset_left = -89.0
+offset_top = -10.0
+offset_right = 71.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.994784, 1)
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+[node name="Button" type="Button" parent="UI/DeathScreen/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Play Again"
 
-[node name="Button2" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+[node name="Button2" type="Button" parent="UI/DeathScreen/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Button3" type="Button" parent="UI/DeathScreen/Main/VBoxContainer"]
+[node name="Button3" type="Button" parent="UI/DeathScreen/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Exit"
 
@@ -429,6 +413,6 @@ shape = SubResource("RectangleShape2D_r2p8p")
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="child_entered_tree" from="Weapons" to="Weapons" method="_on_child_entered_tree"]
 [connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_index"]
-[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button" to="UI/DeathScreen" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button2" to="UI/DeathScreen" method="_on_button_2_pressed"]
-[connection signal="pressed" from="UI/DeathScreen/Main/VBoxContainer/Button3" to="UI/DeathScreen" method="_on_button_3_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button" to="UI/DeathScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button2" to="UI/DeathScreen" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button3" to="UI/DeathScreen" method="_on_button_3_pressed"]
