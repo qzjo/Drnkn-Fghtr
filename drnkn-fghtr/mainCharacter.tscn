@@ -14,7 +14,7 @@
 size = Vector2(27.5, 64.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii88m"]
-size = Vector2(62, 123.177)
+size = Vector2(88.2649, 123.177)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1di6h"]
 size = Vector2(25, 60)
@@ -105,7 +105,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rmm"]
-size = Vector2(32, 63.25)
+size = Vector2(32.25, 63.25)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4lwq"]
 bg_color = Color(0.184314, 0.184314, 0.184314, 1)
@@ -217,7 +217,7 @@ position = Vector2(-46.25, -0.125)
 shape = SubResource("RectangleShape2D_14uht")
 
 [node name="Body2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.45453)
+position = Vector2(-13.5303, -2.45453)
 scale = Vector2(1.0303, 1.0303)
 shape = SubResource("RectangleShape2D_ii88m")
 
@@ -233,7 +233,7 @@ libraries = {
 [node name="BodyArea" type="CollisionShape2D" parent="."]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(4.76837e-07, -2.75)
+position = Vector2(-0.25, -2.75)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_y7rmm")
 
