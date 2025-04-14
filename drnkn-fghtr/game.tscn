@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cgvswar3jwhk"]
+[gd_scene load_steps=20 format=4 uid="uid://cgvswar3jwhk"]
 
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ao4l5"]
 [ext_resource type="Texture2D" uid="uid://cplbbhs4fj1uc" path="res://Assets/floor.png" id="1_bh7tu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
 [ext_resource type="PackedScene" uid="uid://bqn8wthohfkrn" path="res://abstract_item.tscn" id="7_xxuik"]
 [ext_resource type="Resource" path="res://Resources/Items/GlassTHREE.tres" id="8_qutg8"]
+[ext_resource type="Texture2D" uid="uid://bcf1jgolqmqna" path="res://PrinceOwen.png" id="8_xmrqp"]
 [ext_resource type="Resource" uid="uid://bgs3ch2ualrf8" path="res://Resources/Skills/Aura.tres" id="9_ccjwh"]
 [ext_resource type="Resource" path="res://Resources/Items/knife.tres" id="10_3a145"]
 [ext_resource type="Resource" path="res://Resources/Items/GlassFOUR.tres" id="11_4ivja"]
@@ -117,6 +118,12 @@ position = Vector2(192, 550)
 
 [node name="Mob2" parent="." groups=["enemies"] instance=ExtResource("6_1qwol")]
 position = Vector2(404, 550)
+
+[node name="Sprite2D" parent="Mob2" index="0"]
+texture_filter = 1
+position = Vector2(-7.99999, 22)
+scale = Vector2(4.9375, 4.625)
+texture = ExtResource("8_xmrqp")
 
 [node name="AbstractItem" parent="." instance=ExtResource("7_xxuik")]
 position = Vector2(903, 567)
