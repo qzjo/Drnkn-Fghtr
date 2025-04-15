@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://coumitoylgnp8" path="res://pause_screen.tscn" id="5_7lpox"]
 [ext_resource type="PackedScene" uid="uid://dalu6q0f6q38f" path="res://mob.tscn" id="6_1qwol"]
 [ext_resource type="PackedScene" uid="uid://bqn8wthohfkrn" path="res://abstract_item.tscn" id="7_xxuik"]
-[ext_resource type="Resource" path="res://Resources/Items/GlassTHREE.tres" id="8_qutg8"]
+[ext_resource type="Resource" uid="uid://benpf1ykjis2j" path="res://Resources/Items/GlassTHREE.tres" id="8_qutg8"]
 [ext_resource type="Texture2D" uid="uid://bcf1jgolqmqna" path="res://PrinceOwen.png" id="8_xmrqp"]
 [ext_resource type="Resource" uid="uid://bgs3ch2ualrf8" path="res://Resources/Skills/Aura.tres" id="9_ccjwh"]
-[ext_resource type="Resource" path="res://Resources/Items/knife.tres" id="10_3a145"]
-[ext_resource type="Resource" path="res://Resources/Items/GlassFOUR.tres" id="11_4ivja"]
+[ext_resource type="Resource" uid="uid://bhyxaqxpdqg7f" path="res://Resources/Items/knife.tres" id="10_3a145"]
+[ext_resource type="Resource" uid="uid://bun4uupvxmdoq" path="res://Resources/Items/GlassFOUR.tres" id="11_4ivja"]
 [ext_resource type="Resource" uid="uid://bgh8a2wdcvapc" path="res://Resources/Skills/Stab.tres" id="11_x52l3"]
 [ext_resource type="Texture2D" uid="uid://dao1b2dvhcunn" path="res://Assets/Door.png" id="14_cmpnq"]
 
@@ -130,30 +130,35 @@ position = Vector2(903, 567)
 texture = null
 stats = ExtResource("8_qutg8")
 skill = ExtResource("9_ccjwh")
+custom_durability = 1
 
 [node name="AbstractItem2" parent="." instance=ExtResource("7_xxuik")]
 position = Vector2(614, 573)
 texture = null
 stats = ExtResource("10_3a145")
 skill = ExtResource("11_x52l3")
+custom_durability = 2
 
 [node name="AbstractItem5" parent="." instance=ExtResource("7_xxuik")]
 position = Vector2(482, 568)
 texture = null
 stats = ExtResource("10_3a145")
 skill = ExtResource("11_x52l3")
+custom_durability = 3
 
 [node name="AbstractItem3" parent="." instance=ExtResource("7_xxuik")]
 position = Vector2(351, 575)
 texture = null
 stats = ExtResource("11_4ivja")
 skill = ExtResource("9_ccjwh")
+custom_durability = 4
 
 [node name="AbstractItem4" parent="." instance=ExtResource("7_xxuik")]
 position = Vector2(61, 577)
 texture = null
 stats = ExtResource("11_4ivja")
 skill = ExtResource("9_ccjwh")
+custom_durability = 5
 
 [node name="bckgrnd" type="Sprite2D" parent="."]
 z_index = -100

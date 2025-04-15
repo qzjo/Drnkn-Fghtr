@@ -12,6 +12,7 @@ texture_filter = 1
 scale = Vector2(4.92, 4.92)
 texture = ExtResource("1_tmvd6")
 script = ExtResource("1_u73qj")
+custom_durability = null
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(2.52, 2.52)

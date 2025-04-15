@@ -4,8 +4,7 @@ extends Sprite2D
 
 @export var stats : Item
 @export var skill : Skill
-
-
+@export var custom_durability: int = 0
 
 
 var player_in: Player = null
@@ -22,7 +21,7 @@ func pickupitem(body: Player):
 	if body.has_empty_slot():
 		call_deferred("reparent",body.find_child("Weapons"))
 		position = body.find_child("Arm").position ## FIX THIS
-		body.add_item(stats,skill)
+		body.add_item(stats, skill, custom_durability)  # Pass the custom durability
 		collision.call_deferred("set_disabled",true)
 		player_in = null
 		

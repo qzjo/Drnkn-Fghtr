@@ -36,11 +36,10 @@ func _input(event: InputEvent) -> void:
 		else:
 			current_index -= 1
 
-func add_item(stats, skill):
+func add_item(stats, skill, custom_durability: int = -1):
 	for slot in slots:
 		if slot.stats == null:
-			slot.stats = stats
-			slot.skill = skill
+			slot.set_item(stats, custom_durability, skill)
 			new_index = slot.get_index()
 			return
 			

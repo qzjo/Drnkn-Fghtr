@@ -27,7 +27,7 @@ func _ready() -> void:
 
 	hitbox.body_entered.connect(func (body: Node) -> void:
 		if body is Mob and attacking:  # Only deal damage if attacking
-			body.take_damage(100)
+			body.take_damage(get_punch_damage())
 	)
 
 func _physics_process(delta: float) -> void:
@@ -117,8 +117,26 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		attacking = false  # Reset attacking state
 		$Hitbox.set_deferred("monitoring", false)  # Disable hitbox after attack ends
 
+# Skill enhancement system
+var active_skill: String = ""
+var default_punch_damage: int = 100
 
+func apply_skill_enhancement(skill_name: String):
+	active_skill = skill_name
+	
+	# Apply the enhancement effect (will be checked during attacks)
+	if skill_name == "STAB":
+		pass
+		# The actual damage increase is applied when hitting the mob
 
+func clear_skill_enhancement():
+	active_skill = ""
+
+# This method should be called when the player hits a mob to apply enhanced damage
+func get_punch_damage() -> int:
+	if active_skill == "STAB":
+		return default_punch_damage * 2  # Double damage with STAB skill
+	return default_punch_damage  # Normal damage otherwise
 
 #
 #
@@ -129,8 +147,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 
-func add_item(stats, skill):
-	hotbar.add_item(stats,skill)
+func add_item(stats, skill, custom_durability: int = -1):
+	hotbar.add_item(stats, skill, custom_durability)
 
 @onready var weapons: Node2D = $Weapons
 

@@ -44,7 +44,7 @@ func take_damage(amount:int):
 	if is_dead: 
 		return
 	health -= dmg
-	print("Mob took ", amount, " damage! Health:", health)
+	print("Mob took ", dmg, " damage! Health:", health)
 
 	if health <= 0:
 		is_dead = true

@@ -8,3 +8,4 @@ class_name Item
 var type = "Weapon"
 
 @export_multiline var description: String
+@export var durability: int = 10 # Default durability value
