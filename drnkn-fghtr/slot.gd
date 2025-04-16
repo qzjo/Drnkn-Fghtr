@@ -27,6 +27,27 @@ func _ready() -> void:
 	set_process_input(false)
 	set_process(false)  # Start with process disabled
 	
+	get_parent().index.connect(_on_hotbar_index)
+	
+	if get_parent().current_index == get_index():
+		update_mob_damage()
+		
+		
+
+func _on_hotbar_index(index: int) -> void:
+	if index == get_index():
+		update_mob_damage()
+
+func update_mob_damage() -> void:
+	if stats != null and "knife" in stats.name.to_lower(): ## CHANGE KNIFE TO WHATEVER ITEM IS IN THE ABSTRACTITEM YOU WANT TO CHANGE BUFFS OF
+		for mob in get_tree().get_nodes_in_group("enemies"):
+			mob.dmg = 50
+		print("Knife selected! Mob damage set to: 50")
+	else:
+		for mob in get_tree().get_nodes_in_group("enemies"):
+			mob.dmg = 5
+		print("Non-knife item selected! Mob damage reset to: 5")
+
 func remove_item():
 	var weaponHolder = player.find_child("Weapons")
 	var itm = weaponHolder.find_child("*AbstractItem*", true)
@@ -99,3 +120,6 @@ func set_item(item: Item, custom_durability: int = -1, item_skill: Skill = null)
 		
 	if item_skill:
 		skill = item_skill
+		
+	if get_parent().current_index == get_index():
+		update_mob_damage()
