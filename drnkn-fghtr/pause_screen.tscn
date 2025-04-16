@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://coumitoylgnp8"]
+[gd_scene load_steps=3 format=3 uid="uid://coumitoylgnp8"]
 
 [ext_resource type="Script" path="res://pause_screen.gd" id="1_foau2"]
+[ext_resource type="Texture2D" uid="uid://ytjjunj2wv8f" path="res://Assets/PauseScreen.png" id="2_645e0"]
 
 [node name="PauseScreen" type="Control"]
 top_level = true
@@ -17,7 +18,7 @@ layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="Background" type="TextureRect" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,7 +31,7 @@ offset_right = 319.5
 offset_bottom = 276.5
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.120418, 0.120418, 0.120418, 1)
+texture = ExtResource("2_645e0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 layout_mode = 2
@@ -50,15 +51,6 @@ text = "Resume"
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Quit"
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-offset_left = 400.0
-offset_top = 88.0
-offset_right = 752.0
-offset_bottom = 225.0
-theme_override_font_sizes/font_size = 100
-text = "Paused"
 
 [connection signal="pressed" from="Background/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
