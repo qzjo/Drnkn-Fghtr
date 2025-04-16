@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhfyjqjlp4ia1"
+path="res://.godot/imported/Gunna - Who You Foolin (Official Instrumental) [BEST VERSION] (ReProd. @prodbyteedaplug).mp3-ba6c49be0960d66b034b5d0b048dea16.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Gunna - Who You Foolin (Official Instrumental) [BEST VERSION] (ReProd. @prodbyteedaplug).mp3"
+dest_files=["res://.godot/imported/Gunna - Who You Foolin (Official Instrumental) [BEST VERSION] (ReProd. @prodbyteedaplug).mp3-ba6c49be0960d66b034b5d0b048dea16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

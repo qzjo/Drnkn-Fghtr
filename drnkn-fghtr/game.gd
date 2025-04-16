@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var pause_screen: Control = $PauseScreen
 var paused = false
 @onready var character: Player = $Character
@@ -10,7 +11,7 @@ var paused = false
 func _ready() -> void:
 	get_tree().paused = false
 	character.find_child("UI").visible = true
-
+	audio_stream_player.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

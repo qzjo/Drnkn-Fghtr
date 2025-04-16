@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuupiha2tvjbm"
+path="res://.godot/imported/Chinese Music  Imperial Dynasty.mp3-765dc577ba13db1d1a5e025facb708f2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Chinese Music  Imperial Dynasty.mp3"
+dest_files=["res://.godot/imported/Chinese Music  Imperial Dynasty.mp3-765dc577ba13db1d1a5e025facb708f2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
