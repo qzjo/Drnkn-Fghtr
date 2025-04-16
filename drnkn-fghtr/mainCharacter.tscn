@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=25 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
@@ -14,10 +14,13 @@
 size = Vector2(27.5, 64.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii88m"]
-size = Vector2(88.2649, 123.177)
+size = Vector2(63.0296, 123.177)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilj2v"]
+size = Vector2(22.3236, 56.7796)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1di6h"]
-size = Vector2(25, 60)
+size = Vector2(26, 60.5)
 
 [sub_resource type="Animation" id="Animation_wuuma"]
 length = 0.001
@@ -52,6 +55,18 @@ tracks/2/path = NodePath("ArmSprite:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -92,6 +107,18 @@ tracks/2/path = NodePath("ArmSprite:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.74533, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyArm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -217,12 +244,17 @@ position = Vector2(-46.25, -0.125)
 shape = SubResource("RectangleShape2D_14uht")
 
 [node name="Body2" type="CollisionShape2D" parent="."]
-position = Vector2(-13.5303, -2.45453)
+position = Vector2(-0.530318, -2.45453)
 scale = Vector2(1.0303, 1.0303)
 shape = SubResource("RectangleShape2D_ii88m")
 
+[node name="BodyArm" type="CollisionShape2D" parent="."]
+position = Vector2(-45.5, 0.25)
+scale = Vector2(1.0303, 1.0303)
+shape = SubResource("RectangleShape2D_ilj2v")
+
 [node name="Arm" type="CollisionShape2D" parent="."]
-position = Vector2(-44.5, 0)
+position = Vector2(-45, -0.25)
 shape = SubResource("RectangleShape2D_1di6h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
