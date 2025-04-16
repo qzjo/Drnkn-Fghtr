@@ -1,16 +1,17 @@
 ~ start
 
-QuestGuy: ni hao kai lin
-- where is this place?
-	QuestGuy: this is my house
-	- how do i leave
+QuestGuy: Hello there!
+QuestGuy: What brings you here?
+- I heard there were riches?
+	QuestGuy: Yes, the prince has immense wealth. 
+	- Where is his room?
 		QuestGuy: press f at the door
-		 	 - what if i don't wanna leave
+		 	 - What if I get caught?
 				QuestGuy: then ima kill you
-				 	- ok bye
-		 	 - ok thanks chat
-	- ok
-		QuestGuy: preciate it
+				 	- Oh alright. 
+		 	 - Thank you!
+	- Ok
+		QuestGuy: Thanks!
 	 
 
 => END!
