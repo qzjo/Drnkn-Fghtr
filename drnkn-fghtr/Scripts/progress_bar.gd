@@ -4,7 +4,7 @@ extends ProgressBar
 @onready var label: Label = $Label
 
 func _ready() -> void:
-	max_value = character.health
+	value = character.health
 	label.text = "Health: " + str(value)
 
 func _process(delta: float) -> void:

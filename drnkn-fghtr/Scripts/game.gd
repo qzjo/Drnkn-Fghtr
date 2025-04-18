@@ -33,10 +33,3 @@ func pauseScreen():
 		
 	paused = !paused
 	
-	
-func _on_door_area_entered(area: Area2D) -> void:
-	in_door_area = true
-
-
-func _on_door_area_exited(area: Area2D) -> void:
-	in_door_area = false
