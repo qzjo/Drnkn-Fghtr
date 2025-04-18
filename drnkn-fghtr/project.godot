@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Drnkn-Fghtr"
-run/main_scene="res://start_screen.tscn"
+run/main_scene="res://Scenes/start_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-HitStopManager="*res://HitStopManager.gd"
+HitStopManager="*res://Scripts/HitStopManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
