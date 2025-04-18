@@ -1,17 +1,17 @@
 ~ start
 
-QuestGuy: Hello there!
-QuestGuy: What brings you here?
+Ms. El: Hello there!
+Ms. El: What brings you here?
 - I heard there were riches?
-	QuestGuy: Yes, the prince has immense wealth. 
+	Ms. El: Yes, the prince has immense wealth. 
 	- Where is his room?
-		QuestGuy: press f at the door
+		Ms. El: Press "f" at the door
 		 	 - What if I get caught?
-				QuestGuy: then ima kill you
+				Ms. El: Then you die a horrible, terrible death
 				 	- Oh alright. 
 		 	 - Thank you!
 	- Ok
-		QuestGuy: Thanks!
+		Ms. El: Thanks!
 	 
 
 => END!

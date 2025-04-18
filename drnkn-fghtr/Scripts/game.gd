@@ -4,7 +4,8 @@ extends Node2D
 @onready var pause_screen: Control = $PauseScreen
 var paused = false
 @onready var character: Player = $Character
-
+@onready var door: Area2D = $Door
+var in_door_area = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +18,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseScreen()
+	
+	if in_door_area and Input.is_action_just_pressed("ui_accept"):
+		get_tree().change_scene_to_file("res://Scenes/level2.tscn")
 
 
 func pauseScreen():
@@ -28,3 +32,11 @@ func pauseScreen():
 		Engine.time_scale = 0
 		
 	paused = !paused
+	
+	
+func _on_door_area_entered(area: Area2D) -> void:
+	in_door_area = true
+
+
+func _on_door_area_exited(area: Area2D) -> void:
+	in_door_area = false
