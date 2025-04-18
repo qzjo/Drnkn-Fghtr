@@ -9,3 +9,4 @@ icon = ExtResource("1_inrvg")
 name = "Scroll"
 type = "Scrolls"
 description = "Use this to gain ancient powers!"
+durability = 10
