@@ -14,6 +14,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	label.text = "enemies left: " + str(value)
+	 ## CURRENTLY BROKEN SAYS THERES 2 MOBS FOR LEVEL 2 BUT THERES ONLY ONE AND IT DOESNT GO DOWN WHEN MOB IN LEVEL 2 DIES
+	## MAYBE TRY CHANGING THE WAVE BAR WHEN LEVEL 2 IT LOADED??? MAKE IT A FUNCTION ???
 
 
 func _on_mobdied() -> void:

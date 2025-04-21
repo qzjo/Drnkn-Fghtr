@@ -49,7 +49,10 @@ func take_damage(amount:int):
 	if health <= 0:
 		is_dead = true
 		mobdied.emit()
-		set_deferred("monitoring", false)  
+		set_deferred("monitoring", false)
+		
+
+		
 		queue_free()
 
 

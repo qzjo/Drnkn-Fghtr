@@ -116,6 +116,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "punch":
 		attacking = false  # Reset attacking state
 		$Hitbox.set_deferred("monitoring", false)  # Disable hitbox after attack ends
+		z_index = 0  # Reset z_index back to default
 
 # Skill enhancement system
 var active_skill: String = ""

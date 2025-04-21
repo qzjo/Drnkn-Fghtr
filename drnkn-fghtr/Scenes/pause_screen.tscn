@@ -52,5 +52,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Quit"
 
+[node name="CheckButton" type="CheckButton" parent="Background"]
+layout_mode = 0
+anchor_left = 0.243056
+anchor_top = 0.839506
+anchor_right = 0.363715
+anchor_bottom = 0.887346
+text = "mute music"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Background/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Background/CheckButton" to="." method="_on_check_button_toggled"]

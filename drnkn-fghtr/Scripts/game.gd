@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var pause_screen: Control = $PauseScreen
+@onready var pause_screen: Control = $Pause/PauseScreen
+
 var paused = false
 @onready var character: Player = $Character
 @onready var door: Area2D = $Door
@@ -17,6 +18,7 @@ var back_area = true
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
 @onready var collision_shape_2dd: CollisionShape2D = $Detector2/CollisionShape2D
 @onready var collision_shape: CollisionShape2D = $"Level 2/TransitionDetector/CollisionShape2D"
+@onready var ontopwall: CollisionShape2D = $LeftWall/Detector/CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,12 +31,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseScreen()
 	
-	if in_door_area and Input.is_action_just_pressed("ui_accept"): ## DOOR
+	if in_door_area and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0: ## DOOR
 		if has_node("Door") == true:
 			door_image.visible = false
 		elif has_node("Door") == false:
 			print(" ")
 			
+		ontopwall.disabled = false
 		walk_barrier.disabled = true
 		collision_shape_2d.disabled = false
 		character.z_index = -91
