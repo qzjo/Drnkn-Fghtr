@@ -42,6 +42,10 @@ func _process(delta: float) -> void:
 		collision_shape_2d.disabled = false
 		character.z_index = -91
 		
+	if in_door_area:
+		character.z_index = -91
+
+	
 	if back_area: ##
 		character.z_index = 999
 	else:
@@ -61,6 +65,7 @@ func pauseScreen():
 
 func _on_door_body_entered(body: Node2D) -> void:
 	in_door_area = true
+	character.z_index = -91
 
 func _on_door_body_exited(body: Node2D) -> void:
 	in_door_area = false
