@@ -19,6 +19,7 @@ var back_area = true
 @onready var collision_shape_2dd: CollisionShape2D = $Detector2/CollisionShape2D
 @onready var collision_shape: CollisionShape2D = $"Level 2/TransitionDetector/CollisionShape2D"
 @onready var ontopwall: CollisionShape2D = $LeftWall/Detector/CollisionShape2D
+@onready var quest_guy: Sprite2D = $QuestGuy
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +31,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseScreen()
+		
+	if get_tree().get_nodes_in_group("enemies").size() == 0:
+		quest_guy.visible = true
 	
 	if in_door_area and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0: ## DOOR
 		if has_node("Door") == true:
