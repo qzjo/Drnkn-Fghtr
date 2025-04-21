@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Scripts/mob_healthbar.gd" id="3_8w304"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(128, 127)
+size = Vector2(130, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(127, 126)
+size = Vector2(126, 126)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1
@@ -72,9 +72,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8po78"]
 _data = {
-&"Fadein": SubResource("Animation_dswnm"),
-&"Fadeout": SubResource("Animation_x28nx"),
-&"RESET": SubResource("Animation_0uojd")
+"Fadein": SubResource("Animation_dswnm"),
+"Fadeout": SubResource("Animation_x28nx"),
+"RESET": SubResource("Animation_0uojd")
 }
 
 [node name="Mob" type="CharacterBody2D"]
@@ -88,11 +88,11 @@ texture = ExtResource("2_2owdf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(0, -0.5)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 1)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_tm3eq")
 
 [node name="mobHealthbar" type="ProgressBar" parent="."]
@@ -116,7 +116,7 @@ script = ExtResource("3_8w304")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mobHealthbar"]
 libraries = {
-&"": SubResource("AnimationLibrary_8po78")
+"": SubResource("AnimationLibrary_8po78")
 }
 
 [connection signal="mobhit" from="." to="mobHealthbar" method="_on_mob_mobhit"]

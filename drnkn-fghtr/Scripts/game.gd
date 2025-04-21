@@ -6,7 +6,17 @@ var paused = false
 @onready var character: Player = $Character
 @onready var door: Area2D = $Door
 var in_door_area = false
+var back_area = true
+@onready var door_image: Sprite2D = $DoorImage
+@onready var walk_barrier: CollisionShape2D = $LeftWall/WalkBARRIER
 
+@onready var collision_shape_2d: CollisionShape2D = $LeftWall/Detector/CollisionShape2D
+@onready var ap: AnimationPlayer = $BLCKTRANS/TRANSITION/AnimationPlayer
+@onready var camera_2d: Camera2D = $"Level 2/Camera2D"
+
+@onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
+@onready var collision_shape_2dd: CollisionShape2D = $Detector2/CollisionShape2D
+@onready var collision_shape: CollisionShape2D = $"Level 2/TransitionDetector/CollisionShape2D"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,9 +29,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		pauseScreen()
 	
-	if in_door_area and Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://Scenes/level2.tscn")
-
+	if in_door_area and Input.is_action_just_pressed("ui_accept"): ## DOOR
+		if has_node("Door") == true:
+			door_image.visible = false
+		elif has_node("Door") == false:
+			print(" ")
+			
+		walk_barrier.disabled = true
+		collision_shape_2d.disabled = false
+		character.z_index = -91
+		
+	if back_area: ##
+		character.z_index = 999
+	else:
+		character.z_index = -91
 
 func pauseScreen():
 	if paused:
@@ -33,3 +54,25 @@ func pauseScreen():
 		
 	paused = !paused
 	
+## NEXT LEVEL HANDLER
+
+func _on_door_body_entered(body: Node2D) -> void:
+	in_door_area = true
+
+func _on_door_body_exited(body: Node2D) -> void:
+	in_door_area = false
+
+func _on_detector_body_entered(body: Node2D) -> void:
+	back_area = true
+
+func _on_detector_body_exited(body: Node2D) -> void:
+	back_area = false
+
+## Transition Handler
+
+func _on_transition_detector_body_entered(body: Node2D) -> void:
+	back_area = true # Replace with function body.
+
+
+func _on_transition_detector_body_exited(body: Node2D) -> void:
+	back_area = false # Replace with function body.
