@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5n86r7sta3px"]
+
+[ext_resource type="Script" path="res://trap.gd" id="1_dn6be"]
+[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://Assets/icon.svg" id="1_x4cr8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm362"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tfer"]
+size = Vector2(133, 663)
+
+[node name="Trap" type="CharacterBody2D"]
+script = ExtResource("1_dn6be")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x4cr8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gm362")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, 81)
+rotation = 1.5708
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 321.5)
+shape = SubResource("RectangleShape2D_0tfer")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
