@@ -25,7 +25,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	if settings.visible == false:
-		settings.visible = true # Replace with function body.
-	else:
-		settings.visible = false
+	settings.visible = true # Replace with function body.

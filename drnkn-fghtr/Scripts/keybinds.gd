@@ -2,6 +2,7 @@ extends Panel
 
 @onready var input_button_scene = preload("res://Scenes/input_button.tscn")
 @onready var action_list: VBoxContainer = $ScrollContainer/ActionList
+@onready var settings: CanvasLayer = $"../.."
 
 
 var is_remapping = false
@@ -49,7 +50,7 @@ func _on_input_button_pressed(button, action):
 		is_remapping = true
 		action_to_remap = action
 		remapping_button = button
-		button.find_child("LabelInput").text = "press key to bind.."
+		button.find_child("LabelInput").text = "press key to bind..."
 # https://www.youtube.com/watch?v=ZDPM45cHHlI
 func _input(event: InputEvent) -> void:
 	if is_remapping:
@@ -60,7 +61,7 @@ func _input(event: InputEvent) -> void:
 			if event is InputEventMouseButton && event.double_click:
 				event.double_click = false
 			
-			InputMap.action_erase_event(action_to_remap)
+			InputMap.action_erase_event(action_to_remap, event)
 			InputMap.action_add_event(action_to_remap, event)
 			_update_action_list(remapping_button, event)
 			
@@ -68,5 +69,15 @@ func _input(event: InputEvent) -> void:
 			action_to_remap = null
 			remapping_button = null
 			
+			accept_event()
+			
 func _update_action_list(button_, event):
-	button.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
+	button_.find_child("LabelInput").text = event.as_text().trim_suffix(" (Physical)")
+
+
+func _on_reset_button_pressed() -> void:
+	_create_action_list()
+
+
+func _on_close_button_pressed() -> void:
+	settings.visible = false# Replace with function body.
