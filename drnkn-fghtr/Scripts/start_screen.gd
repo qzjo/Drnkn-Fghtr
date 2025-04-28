@@ -1,6 +1,7 @@
 extends Control
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var settings: CanvasLayer = $Settings
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,3 +22,7 @@ func _on_start_pressed() -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_settings_button_pressed() -> void:
+	settings.visible = true # Replace with function body.
