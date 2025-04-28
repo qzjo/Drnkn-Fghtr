@@ -13,7 +13,8 @@ func _ready():
 	bulletarea.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			body.health -= damage
-			queue_free()
+			if body.health == 0.0
+				
 			)
 
 func _physics_process(delta: float) -> void:

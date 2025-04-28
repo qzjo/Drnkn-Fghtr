@@ -5,6 +5,7 @@ extends Node2D
 @onready var door: Area2D = $Door
 var in_door_area = false
 var paused = false
+@onready var pause_screen: Control = $Pause/PauseScreen
 
 
 func _ready() -> void:
@@ -15,4 +16,16 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("pause"):
+		pauseScreen()
+		
+		
+func pauseScreen():
+	if paused:
+		pause_screen.hide()
+		Engine.time_scale = 1
+	else:
+		pause_screen.show()
+		Engine.time_scale = 0
+		
+	paused = !paused

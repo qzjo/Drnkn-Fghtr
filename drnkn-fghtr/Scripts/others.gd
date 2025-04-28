@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 func _on_volume_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
-	$Volume/Label.text = "Volume: " + str(linear_to_db(value))
 
 
 func _on_check_button_toggled(toggled_on: bool) -> void:

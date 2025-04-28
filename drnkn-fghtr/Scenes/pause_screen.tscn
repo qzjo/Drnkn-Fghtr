@@ -62,9 +62,9 @@ theme_override_font_sizes/font_size = 60
 text = "quit"
 
 [node name="Settings" parent="." instance=ExtResource("3_vskhk")]
-visible = false
 
 [node name="CheckButton" type="CheckButton" parent="Settings"]
+visible = false
 texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.167535
