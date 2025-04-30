@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://cav460o3gu4bq"]
+
+[ext_resource type="Script" path="res://Scripts/ap.gd" id="1_jrsok"]
+
+[node name="AP" type="CanvasLayer"]
+script = ExtResource("1_jrsok")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.015625
+anchor_top = 0.0216049
+anchor_right = 0.220486
+anchor_bottom = 0.212963
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 0.00847458
+anchor_top = 0.016129
+anchor_right = 0.122881
+anchor_bottom = 0.129032
+theme_override_font_sizes/font_size = 10
+text = "panel"
+metadata/_edit_use_anchors_ = true
+
+[node name="skip1Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.346
+offset_left = 4.0
+offset_top = 98.0
+offset_right = 59.1
+offset_bottom = 77.096
+theme_override_font_sizes/font_size = 10
+text = "skip level 1"
+
+[node name="hpButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.346
+offset_left = 3.0
+offset_top = 73.0
+offset_right = 67.1
+offset_bottom = 52.096
+theme_override_font_sizes/font_size = 10
+text = "unlimited hp"
+
+[connection signal="pressed" from="ColorRect/skip1Button" to="." method="_on_skip_1_button_pressed"]
+[connection signal="pressed" from="ColorRect/hpButton" to="." method="_on_hp_button_pressed"]
