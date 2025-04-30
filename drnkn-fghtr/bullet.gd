@@ -13,7 +13,6 @@ func _ready():
 	bulletarea.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
 			body.take_damage(damage)
-			#if body.health == 0.0
 				
 				
 			)

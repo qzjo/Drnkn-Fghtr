@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j2gdm4ktkl1g"
-path="res://.godot/imported/bambootwo.png-2792ca35a5053e45cda1aeb124dda49b.ctex"
+uid="uid://div8ta5lgdng8"
+path="res://.godot/imported/Character1.png-967c17e80893a0c53c7f4170b541a6af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/bambootwo.png"
-dest_files=["res://.godot/imported/bambootwo.png-2792ca35a5053e45cda1aeb124dda49b.ctex"]
+source_file="res://Assets/Character1.png"
+dest_files=["res://.godot/imported/Character1.png-967c17e80893a0c53c7f4170b541a6af.ctex"]
 
 [params]
 

@@ -22,7 +22,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if get_tree().get_nodes_in_group("enemies").size() == 0:
+		wave_bar.value = 0
 	#if back_area: ##
 	#	character.z_index = 999
 	#	print("!!")
@@ -35,6 +36,7 @@ func spawnmob():
 	newmobs.add_to_group("enemies")
 	get_tree().current_scene.add_child(newmobs)
 	newmobs.global_position = spawnpoint.global_position
+
 
 func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
 	in_door_area = true
