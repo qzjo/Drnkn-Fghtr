@@ -88,3 +88,11 @@ func _on_transition_detector_body_entered(body: Node2D) -> void:
 
 func _on_transition_detector_body_exited(body: Node2D) -> void:
 	back_area = false # Replace with function body.
+
+@onready var aPanel: CanvasLayer = $AP
+
+func _on_apbutton_pressed() -> void:
+	if aPanel.visible == false:
+		aPanel.visible = true
+	else:
+		aPanel.visible = false

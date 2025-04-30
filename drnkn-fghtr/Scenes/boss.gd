@@ -18,7 +18,7 @@ signal mobdied
 signal mobhit
 
 func _ready() -> void:
-	mob_healthbar.self_modulate.a = 0.0
+	mob_healthbar.max_value = health
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -39,7 +39,7 @@ func take_damage(amount:int):
 	
 	mobhit.emit()
 	
-	
+	mob_healthbar.value = health
 	
 	if is_dead: 
 		return
