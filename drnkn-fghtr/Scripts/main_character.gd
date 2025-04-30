@@ -17,7 +17,9 @@ var knockback_timer: float = 0.0  # Timer for knockback duration
 
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
-
+const DASH_SPEED = 1000
+var dashing = false
+var can_dash = true
 
 signal plrdied
 
@@ -68,11 +70,19 @@ func handle_movement():
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
+	if Input.is_action_just_pressed("dash") and can_dash:
+		dashing = true
+		can_dash = false
+		$dash_timer.start()
+		$dash_again_timer.start()
 	# Get the input direction
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		velocity.x = direction * SPEED
+		if dashing:
+			velocity.x = direction * DASH_SPEED
+		else:
+			velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -155,3 +165,11 @@ func add_item(stats, skill, custom_durability: int = -1):
 
 func has_empty_slot():
 	return weapons.is_available()
+
+
+func _on_dash_timer_timeout() -> void:
+	dashing = false
+
+
+func _on_dash_again_timer_timeout() -> void:
+	can_dash = true
