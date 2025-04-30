@@ -12,8 +12,9 @@ func _ready():
 	global_rotation = rota
 	bulletarea.body_entered.connect(func (body: Node) -> void:
 		if body is Player:
-			body.health -= damage
-			if body.health == 0.0
+			body.take_damage(damage)
+			#if body.health == 0.0
+				
 				
 			)
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5n86r7sta3px"]
 
 [ext_resource type="Script" path="res://trap.gd" id="1_dn6be"]
-[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://Assets/icon.svg" id="1_x4cr8"]
+[ext_resource type="Texture2D" uid="uid://j2gdm4ktkl1g" path="res://Scripts/bambootwo.png" id="2_cvl0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm362"]
 size = Vector2(128, 128)
@@ -13,7 +13,10 @@ size = Vector2(133, 663)
 script = ExtResource("1_dn6be")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_x4cr8")
+position = Vector2(0.0787579, 24.3251)
+rotation = 3.14159
+scale = Vector2(1.78253, 2.98384)
+texture = ExtResource("2_cvl0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gm362")

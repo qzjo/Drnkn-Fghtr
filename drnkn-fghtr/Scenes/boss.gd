@@ -5,7 +5,7 @@ var health: int = 1000
 const speed = 400.0
 const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
-@onready var knockbackPower: int = 500
+@onready var knockbackPower: int = 800
 var is_dead = false
 enum State { CHASING, KNOCKBACK }
 var current_state: int = State.CHASING  # Start in chasing mode
