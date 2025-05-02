@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvxie43xasl5i"]
+[gd_scene load_steps=12 format=3 uid="uid://xcg0jxnvc1ty"]
 
 [ext_resource type="Script" path="res://Scenes/boss.gd" id="1_t1c7y"]
 [ext_resource type="Texture2D" uid="uid://dit8yck1hb6jy" path="res://Scenes/samurai.jpg" id="2_eswpc"]

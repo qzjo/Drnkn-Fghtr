@@ -1,7 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=34 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://Scripts/main_character.gd" id="1_ef64n"]
-[ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_jj3j1"]
+[ext_resource type="Texture2D" uid="uid://ca2f0tc236820" path="res://Assets/Character-Sheet.png" id="2_py1sa"]
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://Scenes/slot.tscn" id="3_8jbmg"]
 [ext_resource type="Script" path="res://Scripts/weapons.gd" id="3_fa3b6"]
 [ext_resource type="Script" path="res://Scripts/hotbar.gd" id="3_sm2wm"]
@@ -9,6 +9,80 @@
 [ext_resource type="Script" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
 [ext_resource type="Script" path="res://Scripts/death_screen.gd" id="8_tny0x"]
 [ext_resource type="Texture2D" uid="uid://cgnf4ncvjm0l0" path="res://Assets/DeathScreen.png" id="9_jrch1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4qas"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ce8"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gos12"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrv55"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(10560, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr3ey"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocghm"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mlck"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(3360, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vwpk"]
+atlas = ExtResource("2_py1sa")
+region = Rect2(3840, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08asm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4qas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ce8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gos12")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrv55")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr3ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocghm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mlck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vwpk")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14uht"]
 size = Vector2(27.5, 64.25)
@@ -51,22 +125,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmSprite:rotation")
+tracks/2/path = NodePath("BodyArm:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BodyArm:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -103,22 +165,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmSprite:rotation")
+tracks/2/path = NodePath("BodyArm:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.74533, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BodyArm:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -222,17 +272,11 @@ process_mode = 3
 scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
 
-[node name="Body" type="Sprite2D" parent="."]
-modulate = Color(0.099986, 0.099986, 0.099986, 1)
-position = Vector2(0, -2)
-scale = Vector2(1, 2)
-texture = ExtResource("1_jj3j1")
-
-[node name="ArmSprite" type="Sprite2D" parent="."]
-modulate = Color(0.099986, 0.099986, 0.099986, 1)
-position = Vector2(-45.375, -0.249999)
-scale = Vector2(0.394531, 0.945313)
-texture = ExtResource("1_jj3j1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 18.125)
+scale = Vector2(0.508724, 0.615104)
+sprite_frames = SubResource("SpriteFrames_08asm")
+animation = &"Walk"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_attack"]]
 unique_name_in_owner = true

@@ -1,5 +1,8 @@
 class_name Player extends CharacterBody2D
 
+
+@onready var character: Player = $"."
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hotbar: HBoxContainer = $UI/Hotbar
 @onready var hitbox: Area2D = %Hitbox
 @export var SPEED = 300.0
@@ -42,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			handle_movement()
 		State.KNOCKBACK:
 			apply_knockback(delta)
-
+	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("punch"):
@@ -78,6 +81,7 @@ func handle_movement():
 		$dash_again_timer.start()
 	# Get the input direction
 	var direction := Input.get_axis("move_left", "move_right")
+	update_animations(direction)
 	if direction:
 		if dashing:
 			velocity.x = direction * DASH_SPEED
@@ -173,3 +177,14 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
+
+
+func update_animations(input_axis):
+	if not is_on_floor():
+		animated_sprite_2d.flip_h = (input_axis > 0)
+		animated_sprite_2d.play("Jump")
+	elif input_axis != 0:
+		animated_sprite_2d.flip_h = (input_axis > 0)
+		animated_sprite_2d.play("Walk")
+	else:
+		animated_sprite_2d.play("Idle")
