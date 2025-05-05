@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("punch"):
+		animated_sprite_2d.play("Attack")
 		punch()
 
 func _input(event):
@@ -124,6 +125,7 @@ func die():
 func play_attack_animation():
 	attacking = true  # Set attacking state to true
 	animation_player.play("punch")
+	animated_sprite_2d.play("Attack")
 	$Hitbox.set_deferred("monitoring", true)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -180,6 +182,8 @@ func _on_dash_again_timer_timeout() -> void:
 
 
 func update_animations(input_axis):
+	if attacking:
+		return
 	if not is_on_floor():
 		animated_sprite_2d.flip_h = (input_axis > 0)
 		animated_sprite_2d.play("Jump")
