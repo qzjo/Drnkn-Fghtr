@@ -4,6 +4,7 @@ extends Node2D
 @onready var slot: Button = $"../Character/UI/Hotbar/slot"
 
 var in_door_area = false
+var bossdoor = false
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
 @onready var ap: AnimationPlayer = $"../BLCKTRANS/TRANSITION/AnimationPlayer"
 @onready var camera_2d: Camera2D = $Camera2D
@@ -29,6 +30,9 @@ func _process(delta: float) -> void:
 	#	print("!!")
 	#else:
 	#	character.z_index = -91
+	
+	if bossdoor == true and Input.is_action_just_pressed("use"):
+		get_tree().change_scene_to_file("res://Scenes/bosslevel.tscn")
 
 
 func spawnmob():
@@ -84,3 +88,11 @@ func _on_transition_detector_body_entered(body: Node2D) -> void:
 func _on_transition_detector_body_exited(body: Node2D) -> void:
 	back_area = false # Replace with function body.
 	character.z_index = -91
+
+
+func _on_door_body_entered(body: Node2D) -> void:
+	bossdoor = true # Replace with function body.
+
+
+func _on_door_body_exited(body: Node2D) -> void:
+	bossdoor = false # Replace with function body.

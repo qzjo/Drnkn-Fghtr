@@ -273,10 +273,12 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-2, 18.125)
 scale = Vector2(0.508724, 0.615104)
 sprite_frames = SubResource("SpriteFrames_08asm")
-animation = &"Walk"
+animation = &"Idle"
+frame_progress = 0.712739
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_attack"]]
 unique_name_in_owner = true
