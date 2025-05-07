@@ -35,7 +35,7 @@ offset_top = 98.0
 offset_right = 59.1
 offset_bottom = 77.096
 theme_override_font_sizes/font_size = 10
-text = "skip level 1"
+text = "kill mobs"
 
 [node name="hpButton" type="Button" parent="ColorRect"]
 layout_mode = 1
