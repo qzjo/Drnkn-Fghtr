@@ -28,7 +28,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("enemies").size() == 0:
 		wave_bar.value = 0
-		cboss.disabled = false
 	#if back_area: ##
 	#	character.z_index = 999
 	#	print("!!")
@@ -50,7 +49,8 @@ func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
 	in_door_area = true
 	print("Level2")
 	character.z_index = 999
-	
+	cboss.disabled = false
+
 	spawnmob()
 
 	if body == character:

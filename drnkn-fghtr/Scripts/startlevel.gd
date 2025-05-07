@@ -10,6 +10,9 @@ var in_door_area = false
 @onready var lore_intro: CanvasLayer = $LoreIntro
 
 func _ready() -> void:
+	get_tree().paused = false
+
+	
 	animation_player.play("textappear")
 	animation_player.play("textfade")
 	await animation_player.animation_finished
