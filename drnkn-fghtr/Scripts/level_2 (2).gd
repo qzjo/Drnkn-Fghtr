@@ -21,10 +21,14 @@ func _ready() -> void:
 @onready var collision_shape: CollisionShape2D = $"../Detector2/CollisionShape2D"
 @onready var wave_bar: ProgressBar = $"../Character/UI/WaveBar" ## FOR MOBS
 
+@onready var cboss: CollisionShape2D = $DoorImage2/Area2D/CollisionShape2D
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("enemies").size() == 0:
 		wave_bar.value = 0
+		cboss.disabled = false
 	#if back_area: ##
 	#	character.z_index = 999
 	#	print("!!")
@@ -46,7 +50,7 @@ func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
 	in_door_area = true
 	print("Level2")
 	character.z_index = 999
-
+	
 	spawnmob()
 
 	if body == character:

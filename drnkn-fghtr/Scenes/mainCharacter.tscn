@@ -88,7 +88,7 @@ animations = [{
 size = Vector2(27.5, 64.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii88m"]
-size = Vector2(63.0296, 123.177)
+size = Vector2(63.0296, 99.3974)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilj2v"]
 size = Vector2(22.3236, 56.7796)
@@ -182,7 +182,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rmm"]
-size = Vector2(32.25, 63.25)
+size = Vector2(32.25, 51)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4lwq"]
 bg_color = Color(0.184314, 0.184314, 0.184314, 1)
@@ -274,8 +274,8 @@ script = ExtResource("1_ef64n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2, 18.125)
-scale = Vector2(0.508724, 0.615104)
+position = Vector2(-2, 5)
+scale = Vector2(0.508724, 0.498437)
 sprite_frames = SubResource("SpriteFrames_08asm")
 animation = &"Idle"
 frame_progress = 0.712739
@@ -290,7 +290,7 @@ position = Vector2(-46.25, -0.125)
 shape = SubResource("RectangleShape2D_14uht")
 
 [node name="Body2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.530318, -2.45453)
+position = Vector2(-0.530318, -14.7046)
 scale = Vector2(1.0303, 1.0303)
 shape = SubResource("RectangleShape2D_ii88m")
 
@@ -311,7 +311,7 @@ libraries = {
 [node name="BodyArea" type="CollisionShape2D" parent="."]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(-0.25, -2.75)
+position = Vector2(-0.25, -15)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_y7rmm")
 
