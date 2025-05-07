@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=39 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://Scripts/main_character.gd" id="1_ef64n"]
+[ext_resource type="Texture2D" uid="uid://1efr655hjdqt" path="res://Scenes/attacl-Sheet-export.png" id="2_e4ea5"]
 [ext_resource type="Texture2D" uid="uid://ca2f0tc236820" path="res://Assets/Character-Sheet.png" id="2_py1sa"]
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://Scenes/slot.tscn" id="3_8jbmg"]
 [ext_resource type="Script" path="res://Scripts/weapons.gd" id="3_fa3b6"]
@@ -9,6 +10,22 @@
 [ext_resource type="Script" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
 [ext_resource type="Script" path="res://Scripts/death_screen.gd" id="8_tny0x"]
 [ext_resource type="Texture2D" uid="uid://cgnf4ncvjm0l0" path="res://Assets/DeathScreen.png" id="9_jrch1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc5vi"]
+atlas = ExtResource("2_e4ea5")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xangt"]
+atlas = ExtResource("2_e4ea5")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3mu0"]
+atlas = ExtResource("2_e4ea5")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpnpj"]
+atlas = ExtResource("2_e4ea5")
+region = Rect2(640, 0, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4qas"]
 atlas = ExtResource("2_py1sa")
@@ -44,6 +61,23 @@ region = Rect2(3840, 0, 480, 480)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08asm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc5vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xangt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3mu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpnpj")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t4qas")
@@ -138,6 +172,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_ho0uc"]
 resource_name = "punch"
 length = 0.3
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -277,8 +312,7 @@ texture_filter = 1
 position = Vector2(-2, 5)
 scale = Vector2(0.508724, 0.498437)
 sprite_frames = SubResource("SpriteFrames_08asm")
-animation = &"Idle"
-frame_progress = 0.712739
+animation = &"Attack"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_attack"]]
 unique_name_in_owner = true
