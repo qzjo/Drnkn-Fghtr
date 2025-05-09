@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
+	get_tree().paused = false
 	transition.visible = true
 	fade.play("fadein")
 	await fade.animation_finished

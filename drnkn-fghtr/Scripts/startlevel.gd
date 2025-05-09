@@ -10,9 +10,15 @@ var in_door_area = false
 @onready var lore_intro: CanvasLayer = $LoreIntro
 
 func _ready() -> void:
+	lore_intro.visible = true
 	get_tree().paused = false
 
+	transition()
 	
+	get_tree().paused = false
+	audio_stream_player.play()
+
+func transition():
 	animation_player.play("textappear")
 	animation_player.play("textfade")
 	await animation_player.animation_finished
@@ -21,12 +27,6 @@ func _ready() -> void:
 	await animation_player.animation_finished
 	animation_player.play("fadeOut")
 	character.find_child("UI").visible = false
-
-	
-	get_tree().paused = false
-	audio_stream_player.play()
-
-
 
 func _process(delta: float) -> void:
 	if in_door_area and Input.is_action_just_pressed("ui_accept"):
