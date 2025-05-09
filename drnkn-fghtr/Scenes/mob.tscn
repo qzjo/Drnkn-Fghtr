@@ -1,14 +1,83 @@
-[gd_scene load_steps=12 format=3 uid="uid://dalu6q0f6q38f"]
+[gd_scene load_steps=21 format=3 uid="uid://dalu6q0f6q38f"]
 
 [ext_resource type="Script" path="res://Scripts/mob.gd" id="1_is8bb"]
-[ext_resource type="Texture2D" uid="uid://bumh8t8a1noii" path="res://Assets/icon.svg" id="2_2owdf"]
+[ext_resource type="Texture2D" uid="uid://bb18lu8l0ws0g" path="res://Scenes/mob.png" id="2_e0en4"]
 [ext_resource type="Script" path="res://Scripts/mob_healthbar.gd" id="3_8w304"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l57q8"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(6240, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxjr2"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(6720, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t122x"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(7200, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkvq7"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(7680, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij0e2"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(1920, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6v42"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr150"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg5oe"]
+atlas = ExtResource("2_e0en4")
+region = Rect2(3360, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de1hr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l57q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxjr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t122x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkvq7")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij0e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6v42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr150")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg5oe")
+}],
+"loop": true,
+"name": &"mob",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(130, 128)
+size = Vector2(112, 125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(126, 126)
+size = Vector2(108, 123)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1
@@ -80,19 +149,24 @@ _data = {
 [node name="Mob" type="CharacterBody2D"]
 script = ExtResource("1_is8bb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2owdf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 17)
+scale = Vector2(0.658854, 0.644792)
+sprite_frames = SubResource("SpriteFrames_de1hr")
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(-1, 0)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_tm3eq")
 
 [node name="mobHealthbar" type="ProgressBar" parent="."]
@@ -103,9 +177,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -41.0
-offset_top = -77.5
+offset_top = -81.0
 offset_right = 41.0
-offset_bottom = -70.5
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_f7o8k")
