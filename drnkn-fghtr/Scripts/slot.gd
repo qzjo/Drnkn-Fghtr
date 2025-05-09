@@ -1,12 +1,16 @@
 extends Button
 class_name Slot
 
+## MAKE THE PLAYER HAVE THE PICKAXE IN THERI INVENTORY EITHER MAKE THEM PRESS A BUTTON USING CODE TO PICK IT UP OR MAKE IT SELECTED AND IN THEIR INVENTORY
+## FIX THE SCROLL SO IT HEALS
+
 ## https://www.youtube.com/watch?v=DaZsCPuDJ5c
 @onready var player = get_tree().current_scene.find_child("Character")
 @onready var AURA = preload("res://Resources/Skills/Aura.tres")
 @onready var STAB = preload("res://Resources/Skills/Stab.tres")
 @onready var test = load("res://Skill.gd")
 @onready var mobs: = get_tree().get_nodes_in_group("enemies")
+@onready var Scroll = preload("res://Resources/Skills/scroll.tres")
 
 @export var stats: Item = null:
 	set(value):
@@ -43,6 +47,9 @@ func update_mob_damage() -> void:
 		for mob in get_tree().get_nodes_in_group("enemies"):
 			mob.dmg = 50
 		print("Knife selected! Mob damage set to: 50")
+	elif stats != null and "Pickaxe" in stats.name.to_lower():
+		for mob in get_tree().get_nodes_in_group("enemies"):
+			mob.dmg = 15
 	else:
 		# Reset damage to default value for all mobs
 		for mob in get_tree().get_nodes_in_group("enemies"):
@@ -104,14 +111,8 @@ func use_item():
 			return
 
 	match skill: ## ADD ANY NEW THINGS
-		AURA:
-			player.SPEED = 500.0
-			print(player.SPEED)
-			print("JJJ")
-		STAB:
-			# Just activate the skill, the _process function will handle punching
-			player.health = 100.0
-			print("STAB skill ready")
+		Scroll:
+			player.health += 10
 
 # Function to drop the current item
 func drop_item():

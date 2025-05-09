@@ -19,6 +19,7 @@ func _ready() -> void:
 	audio_stream_player.play()
 
 func transition():
+	character.find_child("UI").visible = false
 	animation_player.play("textappear")
 	animation_player.play("textfade")
 	await animation_player.animation_finished
@@ -26,7 +27,6 @@ func transition():
 	animation_player.play("textappear")
 	await animation_player.animation_finished
 	animation_player.play("fadeOut")
-	character.find_child("UI").visible = false
 
 func _process(delta: float) -> void:
 	if in_door_area and Input.is_action_just_pressed("ui_accept"):
