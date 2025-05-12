@@ -13,6 +13,8 @@ var knockback_timer: float = 0.0  # Timer for knockback duration
 @onready var mob_healthbar: ProgressBar = $mobHealthbar
 @onready var animation_player: AnimationPlayer = $mobHealthbar/AnimationPlayer
 @export var dmg:int = 5
+var is_attacking = false
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 signal mobdied
 signal mobhit
@@ -94,6 +96,8 @@ func _on_hitbox_body_entered(body: Node) -> void:
 
 	if body is Player:
 		var player := body as Player
+		animated_sprite_2d.play("attack")
+		is_attacking = true
 		if not player.is_attacking():
 			player.take_damage()
 		if player.is_attacking():
@@ -101,4 +105,12 @@ func _on_hitbox_body_entered(body: Node) -> void:
 			knockback()
 		$Hitbox.set_deferred("monitoring", false)
 		await get_tree().create_timer(0.5).timeout
+		is_attacking = false
 		$Hitbox.set_deferred("monitoring", true)
+
+
+
+func update_animations():
+	if is_attacking:
+		return
+	animated_sprite_2d.play("Walk")
