@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=42 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://Scripts/main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://1efr655hjdqt" path="res://Scenes/attacl-Sheet-export.png" id="2_e4ea5"]
@@ -11,6 +11,20 @@
 [ext_resource type="Script" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
 [ext_resource type="Script" path="res://Scripts/death_screen.gd" id="8_tny0x"]
 [ext_resource type="Texture2D" uid="uid://cgnf4ncvjm0l0" path="res://Assets/DeathScreen.png" id="9_jrch1"]
+[ext_resource type="Shader" path="res://Scenes/Heal.gdshader" id="12_cyg8x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xt1kk"]
+shader = ExtResource("12_cyg8x")
+shader_parameter/shine_num = 8.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.75
+shader_parameter/cut_inner_radius = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc5vi"]
 atlas = ExtResource("2_e4ea5")
@@ -315,6 +329,21 @@ size = Vector2(115, 127)
 process_mode = 3
 scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
+
+[node name="Particle" type="ColorRect" parent="."]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_xt1kk")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -71.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.06, 2.06)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

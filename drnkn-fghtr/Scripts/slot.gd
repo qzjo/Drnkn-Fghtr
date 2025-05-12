@@ -12,6 +12,8 @@ class_name Slot
 @onready var mobs: = get_tree().get_nodes_in_group("enemies")
 @onready var Scroll = preload("res://Resources/Skills/scroll.tres")
 
+@onready var particle: ColorRect = $Character/Particle
+
 @export var stats: Item = null:
 	set(value):
 		# Make a duplicate of the resource to ensure unique durability
