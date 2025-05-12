@@ -17,7 +17,8 @@ var input_actions = {
 	"pause": "Pause",
 	"punch": "Punch",
 	"use": "Use",
-	"pickup": "Pick up"
+	"pickup": "Pick up",
+	"dash": "Dash"
 }
 
 func _ready() -> void:

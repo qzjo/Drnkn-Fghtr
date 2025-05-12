@@ -15,6 +15,7 @@ var back_area = false
 func _ready() -> void:
 	# Make sure collision shapes are enabled at game start
 	print("lvl2")
+	cboss.disabled = true
 
 @onready var level_detector: Area2D = $LevelDetector
 @onready var collision_shape_2d: CollisionShape2D = $LevelDetector/CollisionShape2D
@@ -34,7 +35,7 @@ func _process(delta: float) -> void:
 	#else:
 	#	character.z_index = -91
 	
-	if bossdoor == true and Input.is_action_just_pressed("use"):
+	if bossdoor and Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://Scenes/bosslevel.tscn")
 
 
@@ -96,7 +97,9 @@ func _on_transition_detector_body_exited(body: Node2D) -> void:
 
 func _on_door_body_entered(body: Node2D) -> void:
 	bossdoor = true # Replace with function body.
+	cboss.disabled = false
 
 
 func _on_door_body_exited(body: Node2D) -> void:
-	bossdoor = false # Replace with function body.
+	bossdoor = false
+	cboss.disabled = true # Replace with function body.

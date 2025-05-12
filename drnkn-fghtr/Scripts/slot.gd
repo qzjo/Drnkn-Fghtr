@@ -48,7 +48,7 @@ func update_mob_damage() -> void:
 			for mob in get_tree().get_nodes_in_group("enemies"):
 				mob.dmg = 50
 			print("Knife selected! Mob damage set to: 50")
-		elif "Pickaxe" in stats.name.to_lower():
+		elif "pickaxe" in stats.name.to_lower():
 			for mob in get_tree().get_nodes_in_group("enemies"):
 				mob.dmg = 15
 	else:
@@ -70,6 +70,8 @@ func remove_item():
 			child.queue_free()
 
 func _process(delta: float) -> void:
+	update_mob_damage()
+
 	# Continuously check if punch is pressed when STAB skill is active
 	if skill == STAB and stats and stats.durability > 0:
 		if Input.is_action_pressed("punch"):

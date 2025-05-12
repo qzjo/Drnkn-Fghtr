@@ -22,9 +22,12 @@ enum State { NORMAL, KNOCKBACK }
 var current_state: int = State.NORMAL
 var knockback_timer: float = 0.0
 
+
+
 func _ready() -> void:
 	$Arm.set_deferred("disabled", true)
 	$Hitbox.set_deferred("monitoring", false)
+	
 	
 	hitbox.body_entered.connect(func (body: Node) -> void:
 		if body is Mob and attacking:
