@@ -8,6 +8,7 @@ var paused = false
 @onready var pause_screen: Control = $Pause/PauseScreen
 
 
+
 func _ready() -> void:
 	get_tree().paused = false
 	character.find_child("UI").visible = true
@@ -29,3 +30,5 @@ func pauseScreen():
 		Engine.time_scale = 0
 		
 	paused = !paused
+	
+	

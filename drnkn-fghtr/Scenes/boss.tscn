@@ -1,14 +1,111 @@
-[gd_scene load_steps=12 format=3 uid="uid://xcg0jxnvc1ty"]
+[gd_scene load_steps=25 format=3 uid="uid://xcg0jxnvc1ty"]
 
 [ext_resource type="Script" path="res://Scenes/boss.gd" id="1_t1c7y"]
-[ext_resource type="Texture2D" uid="uid://dit8yck1hb6jy" path="res://Scenes/samurai.jpg" id="2_eswpc"]
+[ext_resource type="Texture2D" uid="uid://d0j3hryo0b77a" path="res://Scenes/peeryboss.png" id="2_1nsd1"]
 [ext_resource type="Script" path="res://Scripts/mob_healthbar.gd" id="3_t28st"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcj3p"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(8640, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abmq3"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(9120, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p6dg"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(9600, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0pri"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(10080, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeaxf"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(10560, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poeoq"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(11040, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgt7e"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(11520, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klgwp"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(12000, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dgk5"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(1920, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nktqx"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d61xq"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afdlg"]
+atlas = ExtResource("2_1nsd1")
+region = Rect2(3360, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mdjv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcj3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abmq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p6dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0pri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeaxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poeoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgt7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klgwp")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dgk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nktqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d61xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afdlg")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(130, 190)
+size = Vector2(241, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(126, 188)
+size = Vector2(125, 188)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1
@@ -80,21 +177,24 @@ _data = {
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_t1c7y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -29)
-scale = Vector2(0.525424, 0.62585)
-texture = ExtResource("2_eswpc")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -1.00001)
+scale = Vector2(0.8875, 0.852083)
+sprite_frames = SubResource("SpriteFrames_mdjv5")
+animation = &"Attack"
+frame = 7
+frame_progress = 1.0
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(-1, -31)
+position = Vector2(54.5, -31)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -30)
+position = Vector2(-1.5, -30)
 shape = SubResource("RectangleShape2D_tm3eq")
 
 [node name="mobHealthbar" type="ProgressBar" parent="."]
