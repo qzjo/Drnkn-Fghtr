@@ -47,10 +47,7 @@ func _process(delta: float) -> void:
 		questcollision.disabled = false
 	
 	if in_door_area and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0: ## DOOR
-		if has_node("Door") == true:
-			door_image.visible = false
-		elif has_node("Door") == false:
-			print(" ")
+		get_tree().change_scene_to_file("res://Scenes/bosslevel.tscn")
 			
 		ontopwall.disabled = false
 		walk_barrier.disabled = true
