@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dcejowwb6rr5e"]
+[gd_scene load_steps=40 format=3 uid="uid://dcejowwb6rr5e"]
 
 [ext_resource type="Script" path="res://Scripts/main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://1efr655hjdqt" path="res://Scenes/attacl-Sheet-export.png" id="2_e4ea5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://Scenes/slot.tscn" id="3_8jbmg"]
 [ext_resource type="Script" path="res://Scripts/weapons.gd" id="3_fa3b6"]
 [ext_resource type="Script" path="res://Scripts/hotbar.gd" id="3_sm2wm"]
+[ext_resource type="Texture2D" uid="uid://cssobkgl3bf7" path="res://Assets/scrollcharacter.png" id="4_h00jq"]
 [ext_resource type="Script" path="res://Scripts/progress_bar.gd" id="6_bwyiu"]
 [ext_resource type="Script" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
 [ext_resource type="Script" path="res://Scripts/death_screen.gd" id="8_tny0x"]
@@ -115,6 +116,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h00jq")
+}],
+"loop": true,
+"name": &"scroll",
 "speed": 5.0
 }]
 
@@ -312,7 +321,7 @@ texture_filter = 1
 position = Vector2(-2, 5)
 scale = Vector2(0.508724, 0.498437)
 sprite_frames = SubResource("SpriteFrames_08asm")
-animation = &"Attack"
+animation = &"Idle"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["player_attack"]]
 unique_name_in_owner = true

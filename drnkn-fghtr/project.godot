@@ -26,6 +26,7 @@ general/balloon_path="res://Dialogue/balloon.tscn"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var pause_screen: Control = $Pause/PauseScreen
+@onready var settings: CanvasLayer = $Pause/PauseScreen/Settings
 
 var paused = false
 @onready var character: Player = $Character
@@ -58,6 +59,7 @@ func _process(delta: float) -> void:
 func pauseScreen():
 	if paused:
 		pause_screen.hide()
+		settings.visible = false
 		Engine.time_scale = 1
 	else:
 		pause_screen.show()

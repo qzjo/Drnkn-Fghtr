@@ -42,14 +42,15 @@ func _on_hotbar_index(index: int) -> void:
 
 # Function to update mob damage based on the current item
 func update_mob_damage() -> void:
-	if stats != null and "knife" in stats.name.to_lower(): ## CHANGE KNIFE TO WHATEVER ITEM IS IN THE ABSTRACTITEM YOU WANT TO CHANGE BUFFS OF
-		# Set damage value for all mobs in the scene
-		for mob in get_tree().get_nodes_in_group("enemies"):
-			mob.dmg = 50
-		print("Knife selected! Mob damage set to: 50")
-	elif stats != null and "Pickaxe" in stats.name.to_lower():
-		for mob in get_tree().get_nodes_in_group("enemies"):
-			mob.dmg = 15
+	if stats != null:
+		if "knife" in stats.name.to_lower(): ## CHANGE KNIFE TO WHATEVER ITEM IS IN THE ABSTRACTITEM YOU WANT TO CHANGE BUFFS OF
+			# Set damage value for all mobs in the scene
+			for mob in get_tree().get_nodes_in_group("enemies"):
+				mob.dmg = 50
+			print("Knife selected! Mob damage set to: 50")
+		elif "Pickaxe" in stats.name.to_lower():
+			for mob in get_tree().get_nodes_in_group("enemies"):
+				mob.dmg = 15
 	else:
 		# Reset damage to default value for all mobs
 		for mob in get_tree().get_nodes_in_group("enemies"):
@@ -113,6 +114,7 @@ func use_item():
 	match skill: ## ADD ANY NEW THINGS
 		Scroll:
 			player.health += 10
+
 
 # Function to drop the current item
 func drop_item():
