@@ -72,7 +72,6 @@ func remove_item():
 			child.queue_free()
 
 func _process(delta: float) -> void:
-	update_mob_damage()
 
 	# Continuously check if punch is pressed when STAB skill is active
 	if skill == STAB and stats and stats.durability > 0:
@@ -118,6 +117,11 @@ func use_item():
 	match skill: ## ADD ANY NEW THINGS
 		Scroll:
 			player.health += 10
+			
+			var effect = player.find_child("Particle")
+			effect.visible = true
+			await get_tree().create_timer(1).timeout
+			effect.visible = false
 
 
 # Function to drop the current item
