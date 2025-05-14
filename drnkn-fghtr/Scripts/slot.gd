@@ -118,6 +118,11 @@ func use_item():
 	match skill: ## ADD ANY NEW THINGS
 		Scroll:
 			player.health += 10
+			
+			var effect = player.find_child("Particle")
+			effect.visible = true
+			await get_tree().create_timer(1).timeout
+			effect.visible = false
 
 
 # Function to drop the current item

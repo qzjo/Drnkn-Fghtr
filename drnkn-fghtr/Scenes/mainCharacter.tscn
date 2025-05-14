@@ -22,7 +22,7 @@ shader_parameter/filter_distence = 1.0
 shader_parameter/filter_magnitude = 1.0
 shader_parameter/filter_minv = 0.75
 shader_parameter/cut_inner_radius = 0.1
-shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/color = Color(0.4, 1, 0.313726, 1)
 shader_parameter/NOISE_speed = Vector2(0, 0)
 shader_parameter/NOISE_magnitude = 0.0
 
@@ -331,6 +331,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ef64n")
 
 [node name="Particle" type="ColorRect" parent="."]
+visible = false
 show_behind_parent = true
 material = SubResource("ShaderMaterial_xt1kk")
 anchors_preset = 8
