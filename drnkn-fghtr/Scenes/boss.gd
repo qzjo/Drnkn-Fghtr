@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			apply_knockback(delta)
 
 	move_and_slide()
+	update_animations()
 	
 	
 func take_damage(amount:int):
