@@ -33,9 +33,10 @@ func _physics_process(delta: float) -> void:
 			chase_player()
 		State.KNOCKBACK:
 			apply_knockback(delta)
+	update_animations()
 
 	move_and_slide()
-	update_animations()
+
 	
 	
 func take_damage(amount:int):
@@ -97,10 +98,11 @@ func _on_hitbox_body_entered(body: Node) -> void:
 
 	if body is Player:
 		var player := body as Player
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.play("Attack")
 		is_attacking = true
 		if not player.is_attacking():
 			player.take_damage()
+			player.knockback(position)
 		if player.is_attacking():
 			HitStopManager.hit_stop_short()
 			knockback()
