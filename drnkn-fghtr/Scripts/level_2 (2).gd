@@ -4,7 +4,6 @@ extends Node2D
 @onready var slot: Button = $"../Character/UI/Hotbar/slot"
 
 var in_door_area = false
-var bossdoor = false
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
 @onready var ap: AnimationPlayer = $"../BLCKTRANS/TRANSITION/AnimationPlayer"
 @onready var camera_2d: Camera2D = $Camera2D
@@ -15,7 +14,7 @@ var back_area = false
 func _ready() -> void:
 	# Make sure collision shapes are enabled at game start
 	print("lvl2")
-	cboss.disabled = true
+#	cboss.disabled = true
 
 @onready var level_detector: Area2D = $LevelDetector
 @onready var collision_shape_2d: CollisionShape2D = $LevelDetector/CollisionShape2D
@@ -35,8 +34,6 @@ func _process(delta: float) -> void:
 	#else:
 	#	character.z_index = -91
 	
-	if bossdoor and Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://Scenes/bosslevel.tscn")
 
 
 func spawnmob():
@@ -50,7 +47,7 @@ func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
 	in_door_area = true
 	print("Level2")
 	character.z_index = 999
-	cboss.disabled = false
+	#cboss.disabled = false
 
 	spawnmob()
 
@@ -93,13 +90,3 @@ func _on_transition_detector_body_entered(body: Node2D) -> void:
 func _on_transition_detector_body_exited(body: Node2D) -> void:
 	back_area = false # Replace with function body.
 	character.z_index = -91
-
-
-func _on_door_body_entered(body: Node2D) -> void:
-	bossdoor = true # Replace with function body.
-	cboss.disabled = false
-
-
-func _on_door_body_exited(body: Node2D) -> void:
-	bossdoor = false
-	cboss.disabled = true # Replace with function body.
