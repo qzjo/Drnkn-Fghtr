@@ -95,25 +95,46 @@ func _on_hitbox_body_entered(body: Node) -> void:
 	if not $Hitbox.monitoring:
 		return
 		
-
 	if body is Player:
 		var player := body as Player
-		animated_sprite_2d.play("Attack")
-		is_attacking = true
-		if not player.is_attacking():
-			player.take_damage()
-			player.knockback(position)
+		#animated_sprite_2d.play("Attack")
+		#is_attacking = true
 		if player.is_attacking():
 			HitStopManager.hit_stop_short()
 			knockback()
 		$Hitbox.set_deferred("monitoring", false)
 		await get_tree().create_timer(0.5).timeout
-		is_attacking = false
+		#is_attacking = false
 		$Hitbox.set_deferred("monitoring", true)
 
+func start_attack_hitbox():
+	$AttackHitbox.monitoring = false
+	#$AttackHitbox/CollisionShape2D.disabled = false
 
+func stop_attack_hitbox():
+	$AttackHitbox.monitoring = true
+	#$AttackHitbox/CollisionShape2D.disabled = true
+
+func do_attack():
+	print("doing attack")
+	is_attacking = true
+	animated_sprite_2d.play("Attack")
+	start_attack_hitbox()
+	await get_tree().create_timer(0.3).timeout  
+	stop_attack_hitbox()
+	is_attacking = false
+	
 
 func update_animations():
 	if is_attacking:
 		return
 	animated_sprite_2d.play("Walk")
+
+
+func _on_attack_hitbox_body_entered(body: Node2D) -> void:
+	if body is Player:
+		do_attack()
+		var player := body as Player
+		body.take_damage()
+		HitStopManager.hit_stop_short()
+		player.knockback(position)
