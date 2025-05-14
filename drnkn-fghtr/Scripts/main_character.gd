@@ -5,7 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: Area2D = %Hitbox
 @export var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-@onready var knockbackPower: int = 200
+@onready var knockbackPower: int = 400
 @onready var mob: Mob = $"../Mob"
 var health: int = 100
 var attacking: bool = false
