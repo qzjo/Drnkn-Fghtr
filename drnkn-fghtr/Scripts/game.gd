@@ -32,7 +32,7 @@ func _ready() -> void:
 	get_tree().paused = false
 	character.find_child("UI").visible = true
 	audio_stream_player.play()
-	#questcollision.disabled = true
+	questcollision.disabled = true
 	character.add_item(PICKAXE, STAB, custom_durability)
 
 
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		
 	if get_tree().get_nodes_in_group("enemies").size() == 0:
 		quest_guy.visible = true
-	#	questcollision.disabled = false
+		questcollision.disabled = false
 	
 	if in_door_area and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0: ## DOOR
 		if has_node("Door") == true:
