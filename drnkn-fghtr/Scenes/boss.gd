@@ -18,6 +18,7 @@ var is_attacking = false
 
 signal mobdied
 signal mobhit
+signal bossdied
 
 func _ready() -> void:
 	mob_healthbar.max_value = health
