@@ -2,7 +2,7 @@ class_name Boss extends CharacterBody2D
 
 @onready var target = $"../Character"
 var health: int = 1000
-const speed = 400.0
+const speed = 250.0
 const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 800
@@ -18,7 +18,6 @@ var is_attacking = false
 
 signal mobdied
 signal mobhit
-signal bossdied
 
 func _ready() -> void:
 	mob_healthbar.max_value = health

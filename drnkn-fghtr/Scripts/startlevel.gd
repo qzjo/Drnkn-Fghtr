@@ -23,7 +23,7 @@ func transition():
 	animation_player.play("textappear")
 	animation_player.play("textfade")
 	await animation_player.animation_finished
-	label.text = "imimimimik"
+	label.text = "Game By Gong Hay Fat Choy Studios"
 	animation_player.play("textappear")
 	await animation_player.animation_finished
 	animation_player.play("fadeOut")

@@ -7,9 +7,12 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $Vignette3/ColorRect/Label
 @onready var wave_bar: ProgressBar = $"../Character/UI/WaveBar"
+@onready var spawnpoint: Sprite2D = $spawnpoint
+@onready var spawnpoint_2: Sprite2D = $spawnpoint2
+@onready var spawnpoint_3: Sprite2D = $spawnpoint3
+@onready var bspawnpoint: Sprite2D = $bspawnpoint
 
 var follow = false
-
 var bossdoor = false
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
 @onready var ap: AnimationPlayer = $"../BLCKTRANS/TRANSITION/AnimationPlayer"
@@ -44,16 +47,31 @@ func _process(delta: float) -> void:
 		await animation_player.animation_finished
 		label.visible = false
 		camani()
-
+		
+		spawnmob()
+		
 
 	
+func spawnmob():
+	var newmobs = preload("res://Scenes/mob.tscn").instantiate()
+	newmobs.add_to_group("enemies")
+	get_tree().current_scene.add_child(newmobs)
+	newmobs.global_position = spawnpoint.global_position
+
+
 		
 func camani():
 	var tween1 := get_tree().create_tween()
 
 	tween1.tween_property(camera_2d,"position",Vector2(-1773,319),2.2)
 	
+
+
 	await tween1.finished
+	var BOSS = preload("res://Scenes/boss.tscn").instantiate()
+	BOSS.add_to_group("enemies")
+	get_tree().current_scene.add_child(BOSS)
+	BOSS.global_position = bspawnpoint.global_position
 	await get_tree().create_timer(1).timeout
 	
 	var tween2 := get_tree().create_tween()
