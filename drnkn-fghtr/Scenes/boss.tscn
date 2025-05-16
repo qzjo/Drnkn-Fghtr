@@ -102,10 +102,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(249, 190)
+size = Vector2(198, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(248, 188)
+size = Vector2(109, 188)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1
@@ -193,11 +193,11 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(58.5, -31)
+position = Vector2(33, -31)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(60, -30)
+position = Vector2(-9, -30)
 shape = SubResource("RectangleShape2D_tm3eq")
 
 [node name="mobHealthbar" type="ProgressBar" parent="."]

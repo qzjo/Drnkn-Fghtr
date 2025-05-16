@@ -1,14 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://yjhqrhqdly1m"]
+[gd_scene load_steps=9 format=3 uid="uid://yjhqrhqdly1m"]
 
-[ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_ekpou"]
+[ext_resource type="Texture2D" uid="uid://blyeto3oaqavi" path="res://Scenes/Character-Sheet.png" id="1_u2ckh"]
+[ext_resource type="Script" path="res://Scenes/quest_guy.gd" id="2_0giih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1blx"]
+atlas = ExtResource("1_u2ckh")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqjsh"]
+atlas = ExtResource("1_u2ckh")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vftws"]
+atlas = ExtResource("1_u2ckh")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjayf"]
+atlas = ExtResource("1_u2ckh")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08hxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1blx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqjsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vftws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjayf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwh1w"]
 size = Vector2(66, 65.0323)
 
-[node name="QuestGuy" type="Sprite2D"]
-position = Vector2(0, -4)
-scale = Vector2(1, 2.90625)
-texture = ExtResource("1_ekpou")
+[node name="QuestGuy" type="AnimatedSprite2D"]
+position = Vector2(6, -4)
+scale = Vector2(2.35833, 2.90625)
+sprite_frames = SubResource("SpriteFrames_08hxk")
+animation = &"Idle"
+frame_progress = 0.530962
+script = ExtResource("2_0giih")
 
 [node name="Area2D" type="Area2D" parent="."]
 
