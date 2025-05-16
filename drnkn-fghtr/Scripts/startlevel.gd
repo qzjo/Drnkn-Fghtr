@@ -8,6 +8,7 @@ var in_door_area = false
 @onready var animation_player: AnimationPlayer = $LoreIntro/AnimationPlayer
 @onready var label: Label = $LoreIntro/back/Label
 @onready var lore_intro: CanvasLayer = $LoreIntro
+@onready var logo: Sprite2D = $LoreIntro/logo
 
 func _ready() -> void:
 	lore_intro.visible = true

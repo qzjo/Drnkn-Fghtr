@@ -1,8 +1,8 @@
 class_name Boss extends CharacterBody2D
 
 @onready var target = $"../Character"
-var health: int = 1000
-const speed = 250.0
+var health: int = 500
+const speed = 100.0
 const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 800
