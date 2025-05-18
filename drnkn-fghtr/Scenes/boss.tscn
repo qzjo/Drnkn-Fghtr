@@ -102,7 +102,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(198, 190)
+size = Vector2(115, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
 size = Vector2(109, 188)
@@ -208,7 +208,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -141.0
+offset_top = -150.0
 offset_right = 42.0
 offset_bottom = -134.0
 grow_horizontal = 2
@@ -227,7 +227,7 @@ libraries = {
 [node name="AttackHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2(87, -46)
+position = Vector2(45, -46)
 shape = SubResource("CircleShape2D_0ukbv")
 
 [connection signal="mobhit" from="." to="mobHealthbar" method="_on_mob_mobhit"]

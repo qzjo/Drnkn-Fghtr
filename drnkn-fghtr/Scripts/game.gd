@@ -20,7 +20,7 @@ var back_area = true
 @onready var collision_shape_2dd: CollisionShape2D = $Detector2/CollisionShape2D
 @onready var collision_shape: CollisionShape2D = $"Level 2/TransitionDetector/CollisionShape2D"
 @onready var ontopwall: CollisionShape2D = $LeftWall/Detector/CollisionShape2D
-@onready var quest_guy: Sprite2D = $QuestGuy
+@onready var quest_guy: AnimatedSprite2D = $QuestGuy
 
 
 @onready var PICKAXE = preload("res://Resources/Items/Pickaxe.tres")
