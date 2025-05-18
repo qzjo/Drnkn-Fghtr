@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var character: Player = $"../Character"
 @onready var slot: Button = $"../Character/UI/Hotbar/slot"
-@onready var cspawnpoint: Sprite2D = $cspawnpoint
 
 var in_door_area = false
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
@@ -23,22 +22,18 @@ func _ready() -> void:
 @onready var wave_bar: ProgressBar = $"../Character/UI/WaveBar" ## FOR MOBS
 
 @onready var cboss: CollisionShape2D = $DoorImage2/Area2D/CollisionShape2D
-@onready var label: Label = $"../Vignette2/Label"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("enemies").size() == 0:
 		wave_bar.value = 0
-
-
 	#if back_area: ##
 	#	character.z_index = 999
 	#	print("!!")
 	#else:
 	#	character.z_index = -91
-
-			
+	
 
 
 func spawnmob():
@@ -46,12 +41,6 @@ func spawnmob():
 	newmobs.add_to_group("enemies")
 	get_tree().current_scene.add_child(newmobs)
 	newmobs.global_position = spawnpoint.global_position
-	
-func spawncreegan():
-	var creegan = preload("res://Scenes/creegan.tscn").instantiate()
-	creegan.add_to_group("enemies")
-	get_tree().current_scene.add_child(creegan)
-	creegan.global_position = cspawnpoint.global_position
 
 
 func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
@@ -81,11 +70,7 @@ func _on_level_detector_body_entered(body: CharacterBody2D) -> void:
 		walk_barrier.disabled = false
 		
 		
-	await get_tree().create_timer(1).timeout
-	label.visible = true
-	spawncreegan()
-	await get_tree().create_timer(.5).timeout
-	label.visible = false
+
 
 func _on_level_detector_body_exited(body: Node2D) -> void:
 	character.z_index = 999
