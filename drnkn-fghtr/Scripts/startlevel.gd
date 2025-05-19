@@ -31,7 +31,9 @@ func transition():
 
 func _process(delta: float) -> void:
 	if in_door_area and Input.is_action_just_pressed("ui_accept"):
+		AudioController.play_door()
 		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		
 
 
 

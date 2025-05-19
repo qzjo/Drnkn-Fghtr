@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 		elif has_node("Door") == false:
 			print(" ")
 			
+		AudioController.play_door()
 		ontopwall.disabled = false
 		walk_barrier.disabled = true
 		collision_shape_2d.disabled = false

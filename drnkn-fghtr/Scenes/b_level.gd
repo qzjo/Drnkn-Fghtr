@@ -27,6 +27,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if bossdoor and Input.is_action_just_pressed("ui_accept"):
+		AudioController.play_door()
 		print("Boss!")
 		transition.visible = true
 		ap.play("fadeIN")
@@ -68,6 +69,7 @@ func camani():
 
 
 	await tween1.finished
+	AudioController.play_boss()
 	var BOSS = preload("res://Scenes/boss.tscn").instantiate()
 	BOSS.add_to_group("enemies")
 	get_tree().current_scene.add_child(BOSS)

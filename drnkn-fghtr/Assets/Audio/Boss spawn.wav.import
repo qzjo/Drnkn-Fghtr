@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1w0nl7tpjo63"
+path="res://.godot/imported/Boss spawn.wav-77c296585381a3fa1e474becba62853c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Boss spawn.wav"
+dest_files=["res://.godot/imported/Boss spawn.wav-77c296585381a3fa1e474becba62853c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

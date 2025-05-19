@@ -128,7 +128,6 @@ func use_item():
 func drop_item():
 	if stats == null:
 		return
-		
 	print("Item dropped: " + stats.name)
 	
 	# Create and setup the dropped item
@@ -142,6 +141,7 @@ func drop_item():
 	dropped_item.global_position = player.global_position
 	
 	# Clear inventory slot
+	AudioController.play_drop()
 	remove_item()
 	stats = null
 	skill = null

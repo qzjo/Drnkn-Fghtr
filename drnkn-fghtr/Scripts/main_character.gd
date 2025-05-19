@@ -68,6 +68,7 @@ func play_attack_animation():
 	print("Playing attack animation")
 	attacking = true
 	animated_sprite_2d.play("Attack")
+	AudioController.play_attack()
 	$Hitbox.set_deferred("monitoring", true)
 
 func _on_animated_sprite_animation_finished():
@@ -83,6 +84,7 @@ func handle_movement():
 	if Input.is_action_just_pressed("dash") and can_dash:
 		dashing = true
 		can_dash = false
+		AudioController.play_dash()
 		$dash_timer.start()
 		$dash_again_timer.start()
 	
@@ -101,6 +103,7 @@ func update_animations(input_axis):
 	elif input_axis != 0:
 		animated_sprite_2d.flip_h = (input_axis > 0)
 		animated_sprite_2d.play("Walk")
+		AudioController.play_walk()
 	else:
 		animated_sprite_2d.play("Idle")
 
@@ -118,6 +121,7 @@ func apply_knockback(delta: float):
 
 func take_damage(amount: int = 20):
 	health -= amount
+	AudioController.play_hit()
 	print("damage taken:", amount)
 	if health <= 0:
 		die()
@@ -141,6 +145,7 @@ func clear_skill_enhancement():
 
 func add_item(stats, skill, custom_durability: int = -1):
 	hotbar.add_item(stats, skill, custom_durability)
+	AudioController.play_pickup()
 
 @onready var weapons: Node2D = $Weapons
 
