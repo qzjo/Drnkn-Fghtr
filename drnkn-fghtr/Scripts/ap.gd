@@ -19,3 +19,8 @@ func _on_skip_1_button_pressed() -> void:
 
 func _on_hp_button_pressed() -> void:
 	character.health = 99999999 # Replace with function body.
+
+
+func _on_opweapon_pressed() -> void:
+	for mob in get_tree().get_nodes_in_group("enemies"):
+		mob.dmg = 9999

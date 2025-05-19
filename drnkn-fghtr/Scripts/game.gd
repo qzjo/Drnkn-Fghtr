@@ -22,6 +22,7 @@ var back_area = true
 @onready var ontopwall: CollisionShape2D = $LeftWall/Detector/CollisionShape2D
 @onready var quest_guy: AnimatedSprite2D = $QuestGuy
 
+@onready var win_checker: CanvasLayer = $"Win Checker"
 
 @onready var PICKAXE = preload("res://Resources/Items/Pickaxe.tres")
 @onready var STAB = preload("res://Resources/Skills/Stab.tres")
@@ -33,6 +34,7 @@ func _ready() -> void:
 	audio_stream_player.play()
 	#questcollision.disabled = true
 	character.add_item(PICKAXE, STAB, custom_durability)
+	print(Counter.totald)
 
 
 
@@ -60,6 +62,8 @@ func _process(delta: float) -> void:
 	if in_door_area:
 		character.z_index = -91
 
+	if Counter.totald == 6:
+		win_checker.visible = true
 	
 	if back_area: ##
 		character.z_index = 999

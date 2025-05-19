@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://cop084gbubvak"]
+
+[ext_resource type="Texture2D" uid="uid://bytcmf3pvkwf" path="res://Assets/White.png" id="1_1jwmi"]
+[ext_resource type="Script" path="res://Scenes/win_checker.gd" id="1_5y1mx"]
+
+[sub_resource type="SystemFont" id="SystemFont_4gyix"]
+font_names = PackedStringArray("Times New Roman")
+subpixel_positioning = 0
+
+[node name="Win Checker" type="CanvasLayer"]
+script = ExtResource("1_5y1mx")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.619608)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.176419, 0.176419, 0.176419, 1)
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -139.0
+offset_right = 253.5
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1jwmi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -10.0
+offset_right = 71.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.994784, 1)
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Play Again"
+
+[node name="Button2" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Button3" type="Button" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -119.0
+offset_right = 232.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_4gyix")
+theme_override_font_sizes/font_size = 20
+text = "You've defeated Prince Peery and secured the riches, but is that enough?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

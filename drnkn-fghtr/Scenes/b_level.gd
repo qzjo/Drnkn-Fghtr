@@ -27,6 +27,7 @@ var bossdoor = false
 @onready var custom_durability: int = 12
 @onready var BOSS = preload("res://Scenes/peery.tscn").instantiate()
 
+@onready var win_checker: CanvasLayer = $"../Win Checker"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,9 +36,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	if BOSS.health == 0:
-		print("J")
+
 	
 	if bossdoor and Input.is_action_just_pressed("ui_accept"):
 		AudioController.play_door()
@@ -63,8 +62,10 @@ func _process(delta: float) -> void:
 		camani()
 		
 		spawnmob()
-		
+	
 
+
+	
 	
 func spawnmob():
 	var newmobs = preload("res://Scenes/mob.tscn").instantiate()

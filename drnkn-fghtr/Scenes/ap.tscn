@@ -37,6 +37,18 @@ offset_bottom = 77.096
 theme_override_font_sizes/font_size = 10
 text = "kill mobs"
 
+[node name="opweapon" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.025
+anchor_bottom = 0.346
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 59.1
+offset_bottom = 27.096
+theme_override_font_sizes/font_size = 10
+text = "op dmg"
+
 [node name="hpButton" type="Button" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = -1
@@ -50,4 +62,5 @@ theme_override_font_sizes/font_size = 10
 text = "unlimited hp"
 
 [connection signal="pressed" from="ColorRect/skip1Button" to="." method="_on_skip_1_button_pressed"]
+[connection signal="pressed" from="ColorRect/opweapon" to="." method="_on_opweapon_pressed"]
 [connection signal="pressed" from="ColorRect/hpButton" to="." method="_on_hp_button_pressed"]

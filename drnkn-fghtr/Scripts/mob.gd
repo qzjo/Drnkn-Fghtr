@@ -2,7 +2,7 @@ class_name Mob extends CharacterBody2D
 
 @onready var target = $"../Character"
 var health = 100
-var speed = 100.0
+var speed = 80.0
 const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 500
@@ -19,6 +19,8 @@ var iscreegan = false
 
 @onready var abstract_item_6: Sprite2D = $"../AbstractItem6"
 @onready var spawnpoint: Sprite2D = $"../Level2/spawnpoint"
+@onready var win_checker: CanvasLayer = $"../Win Checker"
+
 
 signal mobdied
 signal mobhit
@@ -61,8 +63,8 @@ func take_damage(amount:int):
 		is_dead = true
 		mobdied.emit()
 		set_deferred("monitoring", false)
-		
-
+		Counter.totald += 1
+		print("this one: ", Counter.totald)
 		
 		queue_free()
 
