@@ -12,6 +12,8 @@ var attacking: bool = false
 @onready var door: Area2D = $"../Door"
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
+var damg = 20
+
 const DASH_SPEED = 1000
 var dashing = false
 var can_dash = true
@@ -119,7 +121,7 @@ func apply_knockback(delta: float):
 	if knockback_timer <= 0:
 		current_state = State.NORMAL
 
-func take_damage(amount: int = 20):
+func take_damage(amount: int = damg):
 	health -= amount
 	AudioController.play_hit()
 	print("damage taken:", amount)

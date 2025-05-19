@@ -19,6 +19,15 @@ var bossdoor = false
 @onready var character: Player = $"../Character"
 @onready var slot: Button = $"../Character/UI/Hotbar/slot"
 @onready var charactercam: Camera2D = $"../Character/charactercam"
+
+@onready var abstract_item_6: Sprite2D = $"../AbstractItem6"
+
+@onready var axe = preload("res://Resources/Items/axe.tres")
+@onready var STAB = preload("res://Resources/Skills/Stab.tres")
+@onready var custom_durability: int = 12
+@onready var BOSS = preload("res://Scenes/peery.tscn").instantiate()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -26,6 +35,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if BOSS.health == 0:
+		print("J")
+	
 	if bossdoor and Input.is_action_just_pressed("ui_accept"):
 		AudioController.play_door()
 		print("Boss!")
@@ -70,10 +83,13 @@ func camani():
 
 	await tween1.finished
 	AudioController.play_boss()
-	var BOSS = preload("res://Scenes/boss.tscn").instantiate()
 	BOSS.add_to_group("enemies")
 	get_tree().current_scene.add_child(BOSS)
 	BOSS.global_position = bspawnpoint.global_position
+	BOSS.health = 750
+	BOSS.speed = 80
+	character.damg = 50
+
 	await get_tree().create_timer(1).timeout
 	
 	var tween2 := get_tree().create_tween()

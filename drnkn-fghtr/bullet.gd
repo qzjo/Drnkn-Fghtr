@@ -4,7 +4,7 @@ var pos: Vector2
 var rota:float
 var dir : float
 var speed = 2000
-var damage = 20
+var damage = 5
 @onready var bulletarea: Area2D = $Area2D
 
 func _ready():

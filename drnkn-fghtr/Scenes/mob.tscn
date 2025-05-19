@@ -74,10 +74,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(112, 125)
+size = Vector2(147, 148.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(108, 123)
+size = Vector2(108, 146.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1

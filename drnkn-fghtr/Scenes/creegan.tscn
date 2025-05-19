@@ -1,0 +1,265 @@
+[gd_scene load_steps=28 format=3 uid="uid://b0sp63t2t8c2o"]
+
+[ext_resource type="Script" path="res://Scripts/mob.gd" id="1_07mae"]
+[ext_resource type="Texture2D" uid="uid://blyeto3oaqavi" path="res://Scenes/Character-Sheet.png" id="2_iwh1k"]
+[ext_resource type="Script" path="res://Scenes/c_healthbar.gd" id="3_dnyhw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_766gr"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(8640, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6k3n"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(9120, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii087"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(9600, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4f1b"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(10080, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05tl"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(10560, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fus70"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(11040, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67s0l"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(6720, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hy4t"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(7200, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1xyg"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(7680, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfkhd"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(8160, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4xpb"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(2400, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l4e1"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(2880, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpai2"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(3360, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c55y0"]
+atlas = ExtResource("2_iwh1k")
+region = Rect2(3840, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00q4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_766gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6k3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii087")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4f1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fus70")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67s0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hy4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1xyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfkhd")
+}],
+"loop": true,
+"name": &"died",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4xpb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l4e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpai2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c55y0")
+}],
+"loop": true,
+"name": &"mob",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
+size = Vector2(147, 148.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
+size = Vector2(108, 146.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o38k"]
+bg_color = Color(0.564706, 0.933333, 0.564706, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0, 0, 0, 0.870588)
+anti_aliasing = false
+
+[sub_resource type="Animation" id="Animation_dswnm"]
+resource_name = "Fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.705882)]
+}
+
+[sub_resource type="Animation" id="Animation_x28nx"]
+resource_name = "Fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.706), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0uojd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.705882)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8po78"]
+_data = {
+"Fadein": SubResource("Animation_dswnm"),
+"Fadeout": SubResource("Animation_x28nx"),
+"RESET": SubResource("Animation_0uojd")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_s0hpf"]
+font_names = PackedStringArray("Times New Roman")
+subpixel_positioning = 0
+
+[node name="Creegan" type="CharacterBody2D"]
+script = ExtResource("1_07mae")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 6)
+scale = Vector2(0.70651, 0.691431)
+sprite_frames = SubResource("SpriteFrames_00q4a")
+animation = &"died"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(5, -11.25)
+shape = SubResource("RectangleShape2D_dfk3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.25)
+shape = SubResource("RectangleShape2D_tm3eq")
+
+[node name="mobHealthbar" type="ProgressBar" parent="."]
+self_modulate = Color(1, 1, 1, 0.705882)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -118.0
+offset_right = 43.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_f7o8k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4o38k")
+max_value = 250.0
+value = 250.0
+show_percentage = false
+script = ExtResource("3_dnyhw")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mobHealthbar"]
+libraries = {
+"": SubResource("AnimationLibrary_8po78")
+}
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -140.0
+offset_right = 51.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_s0hpf")
+text = "General Maurice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mobhit" from="." to="mobHealthbar" method="_on_mob_mobhit"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

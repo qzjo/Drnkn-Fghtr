@@ -1,8 +1,8 @@
 class_name Mob extends CharacterBody2D
 
 @onready var target = $"../Character"
-var health: int = 100
-const speed = 100.0
+var health = 100
+var speed = 100.0
 const GRAVITY = 980.0
 @onready var hitbox: Area2D = $Hitbox
 @onready var knockbackPower: int = 500
@@ -15,13 +15,19 @@ var knockback_timer: float = 0.0  # Timer for knockback duration
 @export var dmg:int = 5
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var is_attacking = false
+var iscreegan = false
 
+@onready var abstract_item_6: Sprite2D = $"../AbstractItem6"
+@onready var spawnpoint: Sprite2D = $"../Level2/spawnpoint"
 
 signal mobdied
 signal mobhit
 
+
 func _ready() -> void:
 	mob_healthbar.self_modulate.a = 0.0
+	
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

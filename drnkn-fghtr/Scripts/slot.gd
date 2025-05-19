@@ -48,11 +48,14 @@ func update_mob_damage() -> void:
 		if "knife" in stats.name.to_lower(): ## CHANGE KNIFE TO WHATEVER ITEM IS IN THE ABSTRACTITEM YOU WANT TO CHANGE BUFFS OF
 			# Set damage value for all mobs in the scene
 			for mob in get_tree().get_nodes_in_group("enemies"):
-				mob.dmg = 50
+				mob.dmg = 25
 			print("Knife selected! Mob damage set to: 50")
 		elif "pickaxe" in stats.name.to_lower():
 			for mob in get_tree().get_nodes_in_group("enemies"):
 				mob.dmg = 15
+		elif "axe" in stats.name.to_lower():
+			for mob in get_tree().get_nodes_in_group("enemies"):
+				mob.dmg = 45
 	else:
 		# Reset damage to default value for all mobs
 		for mob in get_tree().get_nodes_in_group("enemies"):
