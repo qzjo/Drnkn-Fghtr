@@ -35,6 +35,7 @@ func _ready() -> void:
 	#questcollision.disabled = true
 	character.add_item(PICKAXE, STAB, custom_durability)
 	print(Counter.totald)
+	win_checker.visible = false
 
 
 

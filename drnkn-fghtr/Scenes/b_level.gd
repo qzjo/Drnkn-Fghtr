@@ -27,7 +27,6 @@ var bossdoor = false
 @onready var custom_durability: int = 12
 @onready var BOSS = preload("res://Scenes/peery.tscn").instantiate()
 
-@onready var win_checker: CanvasLayer = $"../Win Checker"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,7 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 
 	
-	if bossdoor and Input.is_action_just_pressed("ui_accept"):
+	if bossdoor and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0:
 		AudioController.play_door()
 		print("Boss!")
 		transition.visible = true

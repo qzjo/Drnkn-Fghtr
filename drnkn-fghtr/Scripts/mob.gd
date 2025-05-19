@@ -19,7 +19,6 @@ var iscreegan = false
 
 @onready var abstract_item_6: Sprite2D = $"../AbstractItem6"
 @onready var spawnpoint: Sprite2D = $"../Level2/spawnpoint"
-@onready var win_checker: CanvasLayer = $"../Win Checker"
 
 
 signal mobdied
@@ -63,8 +62,7 @@ func take_damage(amount:int):
 		is_dead = true
 		mobdied.emit()
 		set_deferred("monitoring", false)
-		Counter.totald += 1
-		print("this one: ", Counter.totald)
+
 		
 		queue_free()
 

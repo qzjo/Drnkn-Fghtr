@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://clnjecnjpq6g2"]
+[gd_scene load_steps=10 format=4 uid="uid://clnjecnjpq6g2"]
 
 [ext_resource type="Script" path="res://audio_controller.gd" id="1_vkgda"]
 [ext_resource type="AudioStream" uid="uid://dnv3uw3w20s5c" path="res://Assets/Audio/pickaxe.wav" id="3_g5pon"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b1w0nl7tpjo63" path="res://Assets/Audio/Boss spawn.wav" id="5_t2jp7"]
 [ext_resource type="AudioStream" uid="uid://d1v14a5i51l5p" path="res://Assets/Audio/Pick up.wav" id="6_proaq"]
 [ext_resource type="AudioStream" uid="uid://1xeglaq4mdb1" path="res://Assets/Audio/Drop Item.wav" id="7_x64qi"]
+[ext_resource type="AudioStream" uid="uid://shr7t3ejfnpo" path="res://Assets/Audio/air_move.wav" id="8_6w3cu"]
 [ext_resource type="AudioStream" uid="uid://ba2y8phcvpb1q" path="res://Assets/Audio/Minecraft Damage (Oof) - Sound Effect (HD).mp3" id="8_hj6eo"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_xxo0p"]
@@ -38,5 +39,5 @@ stream = ExtResource("7_x64qi")
 stream = ExtResource("8_hj6eo")
 
 [node name="Dash" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_hj6eo")
+stream = ExtResource("8_6w3cu")
 volume_db = -3.014

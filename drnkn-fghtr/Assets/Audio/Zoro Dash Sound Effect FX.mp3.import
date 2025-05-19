@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k4ryldik4sa0"
+path="res://.godot/imported/Zoro Dash Sound Effect FX.mp3-1cf19dc48833cbf8218660191ff8b2f0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Zoro Dash Sound Effect FX.mp3"
+dest_files=["res://.godot/imported/Zoro Dash Sound Effect FX.mp3-1cf19dc48833cbf8218660191ff8b2f0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
