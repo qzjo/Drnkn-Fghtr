@@ -1,38 +1,38 @@
 [gd_scene load_steps=9 format=3 uid="uid://yjhqrhqdly1m"]
 
-[ext_resource type="Texture2D" uid="uid://blyeto3oaqavi" path="res://Scenes/Character-Sheet.png" id="1_u2ckh"]
+[ext_resource type="Texture2D" uid="uid://da68e7fe6foi1" path="res://Scenes/Character-Sheet(1).png" id="1_ptjie"]
 [ext_resource type="Script" path="res://Scenes/quest_guy.gd" id="2_0giih"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1blx"]
-atlas = ExtResource("1_u2ckh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ody28"]
+atlas = ExtResource("1_ptjie")
 region = Rect2(0, 0, 480, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqjsh"]
-atlas = ExtResource("1_u2ckh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqiud"]
+atlas = ExtResource("1_ptjie")
 region = Rect2(480, 0, 480, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vftws"]
-atlas = ExtResource("1_u2ckh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3jiw"]
+atlas = ExtResource("1_ptjie")
 region = Rect2(960, 0, 480, 480)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjayf"]
-atlas = ExtResource("1_u2ckh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft3g1"]
+atlas = ExtResource("1_ptjie")
 region = Rect2(1440, 0, 480, 480)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08hxk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f1blx")
+"texture": SubResource("AtlasTexture_ody28")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dqjsh")
+"texture": SubResource("AtlasTexture_wqiud")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vftws")
+"texture": SubResource("AtlasTexture_i3jiw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rjayf")
+"texture": SubResource("AtlasTexture_ft3g1")
 }],
 "loop": true,
 "name": &"Idle",
@@ -43,8 +43,9 @@ animations = [{
 size = Vector2(66, 65.0323)
 
 [node name="QuestGuy" type="AnimatedSprite2D"]
-position = Vector2(6, -4)
-scale = Vector2(2.35833, 2.90625)
+texture_filter = 1
+position = Vector2(1.00002, 1)
+scale = Vector2(1.825, 1.99348)
 sprite_frames = SubResource("SpriteFrames_08hxk")
 animation = &"Idle"
 frame_progress = 0.530962
