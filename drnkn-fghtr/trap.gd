@@ -13,6 +13,7 @@ func fire():
 	bullet.pos = $Node2D.global_position
 	bullet.rota = global_rotation
 	get_parent().add_child(bullet)
+	AudioController.play_arrow()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

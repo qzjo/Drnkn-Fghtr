@@ -30,3 +30,6 @@ func play_hit():
 
 func play_dash():
 	$Dash.play()
+	
+func play_arrow():
+	$Arrow.play()

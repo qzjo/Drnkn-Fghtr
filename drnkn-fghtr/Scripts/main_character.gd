@@ -54,6 +54,7 @@ func _physics_process(delta: float) -> void:
 		punch()
 	
 	var direction := Input.get_axis("move_left", "move_right")
+	AudioController.play_walk()
 	update_animations(direction)
 
 func _unhandled_input(event: InputEvent) -> void:

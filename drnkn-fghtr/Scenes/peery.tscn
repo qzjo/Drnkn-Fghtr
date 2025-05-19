@@ -139,10 +139,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(147, 148.5)
+size = Vector2(147, 178.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
-size = Vector2(108, 146.5)
+size = Vector2(141, 171.25)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7o8k"]
 corner_radius_top_left = 1
@@ -221,32 +221,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -51.0
-offset_top = -173.0
+offset_top = -200.0
 offset_right = 46.0
-offset_bottom = -150.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("SystemFont_gvfji")
-text = "Prince Peery"
+text = "Prince Owen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -1.00001)
-scale = Vector2(0.8875, 0.852083)
+position = Vector2(12, -16)
+scale = Vector2(1.01458, 0.974095)
 sprite_frames = SubResource("SpriteFrames_t3png")
-animation = &"died"
+animation = &"mob"
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(12.5, -23)
+position = Vector2(12.5, -37.875)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -22)
+position = Vector2(16.5, -34.375)
 shape = SubResource("RectangleShape2D_tm3eq")
 
 [node name="mobHealthbar" type="ProgressBar" parent="."]
@@ -257,9 +257,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -41.0
-offset_top = -146.0
+offset_top = -170.0
 offset_right = 41.0
-offset_bottom = -135.0
+offset_bottom = -159.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_f7o8k")

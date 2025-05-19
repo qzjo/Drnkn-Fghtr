@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1ab3hjy23lfa"
+path="res://.godot/imported/Real Projectile sfx.mp3-5658730f3811e2af710d73a4f634c363.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Real Projectile sfx.mp3"
+dest_files=["res://.godot/imported/Real Projectile sfx.mp3-5658730f3811e2af710d73a4f634c363.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
