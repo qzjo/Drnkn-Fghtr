@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://xcg0jxnvc1ty"]
 
-[ext_resource type="Script" path="res://Scenes/boss.gd" id="1_t1c7y"]
+[ext_resource type="Script" uid="uid://lv0enwf6u55x" path="res://Scenes/boss.gd" id="1_t1c7y"]
 [ext_resource type="Texture2D" uid="uid://d0j3hryo0b77a" path="res://Scenes/peeryboss.png" id="2_1nsd1"]
-[ext_resource type="Script" path="res://Scripts/mob_healthbar.gd" id="3_t28st"]
+[ext_resource type="Script" uid="uid://dqlnwuiy5in62" path="res://Scripts/mob_healthbar.gd" id="3_t28st"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcj3p"]
 atlas = ExtResource("2_1nsd1")
@@ -169,9 +169,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8po78"]
 _data = {
-"Fadein": SubResource("Animation_dswnm"),
-"Fadeout": SubResource("Animation_x28nx"),
-"RESET": SubResource("Animation_0uojd")
+&"Fadein": SubResource("Animation_dswnm"),
+&"Fadeout": SubResource("Animation_x28nx"),
+&"RESET": SubResource("Animation_0uojd")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ukbv"]
@@ -221,7 +221,7 @@ script = ExtResource("3_t28st")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mobHealthbar"]
 libraries = {
-"": SubResource("AnimationLibrary_8po78")
+&"": SubResource("AnimationLibrary_8po78")
 }
 
 [node name="AttackHitbox" type="Area2D" parent="."]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=3 uid="uid://c6u25f42u7gry"]
 
-[ext_resource type="Script" path="res://Scripts/mob.gd" id="1_3n4fu"]
+[ext_resource type="Script" uid="uid://dg3d2kw6s2k6l" path="res://Scripts/mob.gd" id="1_3n4fu"]
 [ext_resource type="Texture2D" uid="uid://d0j3hryo0b77a" path="res://Scenes/peeryboss.png" id="2_7khax"]
-[ext_resource type="Script" path="res://phealthbar.gd" id="3_pbn0g"]
+[ext_resource type="Script" uid="uid://5gi3tdtpmjfx" path="res://phealthbar.gd" id="3_pbn0g"]
 
 [sub_resource type="SystemFont" id="SystemFont_gvfji"]
 font_names = PackedStringArray("Times New Roman")
@@ -139,7 +139,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dfk3s"]
-size = Vector2(147, 178.25)
+size = Vector2(187, 178.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3eq"]
 size = Vector2(141, 171.25)
@@ -206,9 +206,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8po78"]
 _data = {
-"Fadein": SubResource("Animation_dswnm"),
-"Fadeout": SubResource("Animation_x28nx"),
-"RESET": SubResource("Animation_0uojd")
+&"Fadein": SubResource("Animation_dswnm"),
+&"Fadeout": SubResource("Animation_x28nx"),
+&"RESET": SubResource("Animation_0uojd")
 }
 
 [node name="Peery" type="CharacterBody2D"]
@@ -242,7 +242,7 @@ animation = &"mob"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 0
 visibility_layer = 2
-position = Vector2(12.5, -37.875)
+position = Vector2(32.5, -37.875)
 shape = SubResource("RectangleShape2D_dfk3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -272,7 +272,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mobHealthbar"]
 libraries = {
-"": SubResource("AnimationLibrary_8po78")
+&"": SubResource("AnimationLibrary_8po78")
 }
 
 [connection signal="mobhit" from="." to="mobHealthbar" method="_on_mob_mobhit"]
