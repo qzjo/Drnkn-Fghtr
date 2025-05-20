@@ -37,11 +37,18 @@ texture = ExtResource("2_645e0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-offset_left = 436.0
-offset_top = 268.0
-offset_right = 715.0
-offset_bottom = 588.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -56.0
+offset_right = 168.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -50,16 +57,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "resume"
 
+[node name="Mainmenu" type="Button" parent="Background/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Main Menu"
+
 [node name="Settings" type="Button" parent="Background/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "settings"
-
-[node name="Quit" type="Button" parent="Background/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 60
-text = "quit"
 
 [node name="Settings" parent="." instance=ExtResource("3_vskhk")]
 
@@ -75,6 +83,6 @@ text = "mute music"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Background/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Mainmenu" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Background/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="toggled" from="Settings/CheckButton" to="." method="_on_check_button_toggled"]
