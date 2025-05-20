@@ -524,9 +524,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -89.0
-offset_top = 5.0
+offset_top = -10.0
 offset_right = 71.0
-offset_bottom = 137.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.994784, 1)
@@ -539,6 +539,10 @@ text = "Play Again"
 [node name="Button2" type="Button" parent="UI/DeathScreen/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="Button3" type="Button" parent="UI/DeathScreen/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
@@ -568,5 +572,6 @@ wait_time = 3.0
 [connection signal="index" from="UI/Hotbar" to="Weapons" method="_on_index"]
 [connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button" to="UI/DeathScreen" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button2" to="UI/DeathScreen" method="_on_button_2_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/TextureRect/VBoxContainer/Button3" to="UI/DeathScreen" method="_on_button_3_pressed"]
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_again_timer" to="." method="_on_dash_again_timer_timeout"]

@@ -19,7 +19,3 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_pressed() -> void:
 	$Settings.visible = true # Replace with function body.
-
-
-func _on_mainmenu_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
