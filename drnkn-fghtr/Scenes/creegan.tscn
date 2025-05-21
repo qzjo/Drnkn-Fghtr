@@ -83,7 +83,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -204,7 +204,8 @@ script = ExtResource("1_07mae")
 position = Vector2(2, -3)
 scale = Vector2(0.801172, 0.826965)
 sprite_frames = SubResource("SpriteFrames_00q4a")
-animation = &"mob"
+animation = &"attack"
+frame_progress = 0.834333
 
 [node name="Hitbox" type="Area2D" parent="."]
 

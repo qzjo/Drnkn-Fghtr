@@ -63,8 +63,7 @@ func _process(delta: float) -> void:
 	if in_door_area:
 		character.z_index = -91
 
-	if Counter.totald == 6:
-		win_checker.visible = true
+
 	
 	if back_area: ##
 		character.z_index = 999

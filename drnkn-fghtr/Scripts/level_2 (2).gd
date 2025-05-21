@@ -48,7 +48,7 @@ func spawnmob():
 	creegann.health = 325
 
 ## FIX HEALTHBAR
-	creegann.speed = 60
+	creegann.speed = 75
 	character.damg = 30
 
 

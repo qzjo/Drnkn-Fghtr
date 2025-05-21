@@ -3,6 +3,8 @@ extends Node2D
 @onready var door: Sprite2D = $Door
 @onready var vignette_3: CanvasLayer = $Vignette3
 @onready var camera_2d: Camera2D = $"../Level2/Camera2D"
+@onready var win_checker: CanvasLayer = $"../Win Checker"
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $Vignette3/ColorRect/Label
@@ -11,7 +13,7 @@ extends Node2D
 @onready var spawnpoint_2: Sprite2D = $spawnpoint2
 @onready var spawnpoint_3: Sprite2D = $spawnpoint3
 @onready var bspawnpoint: Sprite2D = $bspawnpoint
-
+var win = false
 var follow = false
 var bossdoor = false
 @onready var transition: ColorRect = $"../BLCKTRANS/TRANSITION"
@@ -21,12 +23,14 @@ var bossdoor = false
 @onready var charactercam: Camera2D = $"../Character/charactercam"
 
 @onready var abstract_item_6: Sprite2D = $"../AbstractItem6"
+@onready var ui: CanvasLayer = $"../Character/UI"
 
 @onready var axe = preload("res://Resources/Items/axe.tres")
 @onready var STAB = preload("res://Resources/Skills/Stab.tres")
 @onready var custom_durability: int = 12
 @onready var BOSS = preload("res://Scenes/peery.tscn").instantiate()
 
+var detect = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +39,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
+	if win and get_tree().get_nodes_in_group("enemies").size() == 0:
+		$Label.visible = true
+	else:
+		$Label.visible = false
+	
+		
+	if detect and win and Input.is_action_just_pressed("use") and get_tree().get_nodes_in_group("enemies").size() == 0:
+		win_checker.visible = true
+	
+	if detect and get_tree().get_nodes_in_group("enemies").size() == 0:
+		ui.visible = false
 	
 	if bossdoor and Input.is_action_just_pressed("ui_accept") and get_tree().get_nodes_in_group("enemies").size() == 0:
 		AudioController.play_door()
@@ -59,7 +73,7 @@ func _process(delta: float) -> void:
 		await animation_player.animation_finished
 		label.visible = false
 		camani()
-		
+		detect = true
 		spawnmob()
 	
 
@@ -114,3 +128,11 @@ func _on_b_door_body_exited(body: Node2D) -> void:
 	if body is Player:
 		bossdoor = false # Replace with function body.
 		print("exited")
+
+
+func _on_win_detector_body_exited(body: Node2D) -> void:
+	win = false # Replace with function body.
+
+
+func _on_win_detector_body_entered(body: Node2D) -> void:
+	win = true # Replace with function body.
