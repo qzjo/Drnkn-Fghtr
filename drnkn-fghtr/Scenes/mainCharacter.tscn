@@ -1,17 +1,17 @@
 [gd_scene load_steps=42 format=3 uid="uid://dcejowwb6rr5e"]
 
-[ext_resource type="Script" uid="uid://ccj4sfk4m7qvh" path="res://Scripts/main_character.gd" id="1_ef64n"]
+[ext_resource type="Script" path="res://Scripts/main_character.gd" id="1_ef64n"]
 [ext_resource type="Texture2D" uid="uid://1efr655hjdqt" path="res://Scenes/attacl-Sheet-export.png" id="2_e4ea5"]
 [ext_resource type="Texture2D" uid="uid://ca2f0tc236820" path="res://Assets/Character-Sheet.png" id="2_py1sa"]
 [ext_resource type="PackedScene" uid="uid://cv7y70o074hdb" path="res://Scenes/slot.tscn" id="3_8jbmg"]
-[ext_resource type="Script" uid="uid://yhyrytuke81" path="res://Scripts/weapons.gd" id="3_fa3b6"]
-[ext_resource type="Script" uid="uid://cy281ax4ae0t4" path="res://Scripts/hotbar.gd" id="3_sm2wm"]
+[ext_resource type="Script" path="res://Scripts/weapons.gd" id="3_fa3b6"]
+[ext_resource type="Script" path="res://Scripts/hotbar.gd" id="3_sm2wm"]
 [ext_resource type="Texture2D" uid="uid://cssobkgl3bf7" path="res://Assets/scrollcharacter.png" id="4_h00jq"]
-[ext_resource type="Script" uid="uid://darebu1osq7m" path="res://Scripts/progress_bar.gd" id="6_bwyiu"]
-[ext_resource type="Script" uid="uid://ffxift82j0nf" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
-[ext_resource type="Script" uid="uid://e3nt22oufwfx" path="res://Scripts/death_screen.gd" id="8_tny0x"]
+[ext_resource type="Script" path="res://Scripts/progress_bar.gd" id="6_bwyiu"]
+[ext_resource type="Script" path="res://Scripts/wave_bar.gd" id="7_i77pw"]
+[ext_resource type="Script" path="res://Scripts/death_screen.gd" id="8_tny0x"]
 [ext_resource type="Texture2D" uid="uid://cgnf4ncvjm0l0" path="res://Assets/DeathScreen.png" id="9_jrch1"]
-[ext_resource type="Shader" uid="uid://dk17wtsuf47ar" path="res://Scenes/Heal.gdshader" id="12_cyg8x"]
+[ext_resource type="Shader" path="res://Scenes/Heal.gdshader" id="12_cyg8x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xt1kk"]
 shader = ExtResource("12_cyg8x")
@@ -235,8 +235,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h70d6"]
 _data = {
-&"RESET": SubResource("Animation_wuuma"),
-&"punch": SubResource("Animation_ho0uc")
+"RESET": SubResource("Animation_wuuma"),
+"punch": SubResource("Animation_ho0uc")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7rmm"]
@@ -317,9 +317,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_niyhv"]
 _data = {
-&"FadeInDeath": SubResource("Animation_pg08n"),
-&"PlayerfadeFN": SubResource("Animation_chiwv"),
-&"RESET": SubResource("Animation_dk7ie")
+"FadeInDeath": SubResource("Animation_pg08n"),
+"PlayerfadeFN": SubResource("Animation_chiwv"),
+"RESET": SubResource("Animation_dk7ie")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2p8p"]
@@ -378,7 +378,7 @@ shape = SubResource("RectangleShape2D_1di6h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_h70d6")
+"": SubResource("AnimationLibrary_h70d6")
 }
 
 [node name="BodyArea" type="CollisionShape2D" parent="."]
@@ -546,7 +546,7 @@ text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
-&"": SubResource("AnimationLibrary_niyhv")
+"": SubResource("AnimationLibrary_niyhv")
 }
 
 [node name="Direction" type="Marker2D" parent="."]

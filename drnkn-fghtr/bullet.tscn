@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwjdedfjgxu0k"]
 
-[ext_resource type="Script" uid="uid://dfauj8pyg4wau" path="res://bullet.gd" id="1_tf3fm"]
+[ext_resource type="Script" path="res://bullet.gd" id="1_tf3fm"]
 [ext_resource type="Texture2D" uid="uid://j2gdm4ktkl1g" path="res://Assets/bambootwo.png" id="2_5jd8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q06s1"]
