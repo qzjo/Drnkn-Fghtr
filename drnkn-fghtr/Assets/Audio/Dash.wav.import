@@ -3,12 +3,11 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bkkgv63y6srw8"
-path="res://.godot/imported/Dash.wav-c5f1e9d9de75d97d7bcf3e31b4940f81.sample"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Audio/Dash.wav"
-dest_files=["res://.godot/imported/Dash.wav-c5f1e9d9de75d97d7bcf3e31b4940f81.sample"]
 
 [params]
 

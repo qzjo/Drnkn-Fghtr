@@ -25,7 +25,7 @@ func transition():
 	animation_player.play("textfade")
 	await animation_player.animation_finished
 	label.text = "FIST OF FORTUNE"
-	$LoreIntro/back/Label2.text = "[ 恭喜发财 Studios ]"
+	$LoreIntro/back/Label2.text = "[ 恭喜發財 Studios ]"
 	animation_player.play("textappear")
 	await animation_player.animation_finished
 	animation_player.play("fadeOut")
